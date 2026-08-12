@@ -1,0 +1,121 @@
+{
+  "double-bedroom-non-ac": {
+    "slug": "double-bedroom-non-ac",
+    "name": "Double Bedroom (Non-AC)",
+    "price": "₹900 / Night",
+    "image": "/rooms/double-non-ac.jpg",
+    "description": "Comfortable, clean, budget-friendly double bedroom equipped with a ceiling fan and comfy bedding.",
+    "longDescription": "Perfect for couples or budget-conscious solo travelers, the Double Bedroom (Non-AC) at Hotel Sunrise offers a clean, well-maintained, and comfortable base in Sri Vijaya Puram. It comes equipped with a ceiling fan, comfortable bedding, and a clean bathroom, offering maximum value for your stay.",
+    "amenities": [
+      "Ceiling Fan",
+      "Comfortable Bedding",
+      "Flat Screen TV",
+      "Modern Bathrooms",
+      "Coffee & Tea Maker",
+      "Housekeeping Service",
+      "Premium Toiletries"
+    ],
+    "specs": {
+      "size": "25 sq m / 270 sq ft",
+      "occupancy": "2 Adults",
+      "view": "City Street View",
+      "bedding": "1 Double Bed"
+    },
+    "features": [
+      {
+        "title": "Tactile Ceiling Fan",
+        "desc": "Stay comfortable with a strong, quiet ceiling fan in your room.",
+        "image": "/rooms/double-ac.jpg"
+      },
+      {
+        "title": "Complimentary Toiletries",
+        "desc": "Enjoy clean bathrooms equipped with organic soaps and premium toiletries updated daily.",
+        "image": "/rooms/room-sunrise-1.jpg"
+      }
+    ],
+    "gallery": [
+      "/rooms/room-sunrise-1.jpg",
+      "/rooms/room-sunrise-2.jpg",
+      "/rooms/room-sunrise-3.jpg"
+    ]
+  },
+  "double-bedroom-ac": {
+    "slug": "double-bedroom-ac",
+    "name": "Double Bedroom (AC)",
+    "price": "₹1,300 / Night",
+    "image": "/rooms/double-ac.jpg",
+    "description": "Enjoy a cool and comfortable stay in our air-conditioned double bedrooms, equipped with modern split AC and ceiling fan.",
+    "longDescription": "Ideal for couples or business travelers wanting cool comfort, the Double Bedroom (AC) features individual split air conditioning, custom wooden furnishings, and a modern clean bathroom to relax after exploring Sri Vijaya Puram.",
+    "amenities": [
+      "Split Air Conditioning",
+      "Ceiling Fan",
+      "Comfortable Bedding",
+      "Flat Screen TV",
+      "Modern Bathrooms",
+      "Coffee & Tea Maker",
+      "Housekeeping Service"
+    ],
+    "specs": {
+      "size": "25 sq m / 270 sq ft",
+      "occupancy": "2 Adults",
+      "view": "City Street View",
+      "bedding": "1 Double Bed"
+    },
+    "features": [
+      {
+        "title": "Split Air Conditioning",
+        "desc": "Relax in cool comfort with quiet split climate control in your room.",
+        "image": "/rooms/room-sunrise-2.jpg"
+      },
+      {
+        "title": "Complimentary Coffee & Tea",
+        "desc": "Prepare hot beverages at your convenience with in-room electric kettles and supplies.",
+        "image": "/rooms/room-sunrise-2.jpg"
+      }
+    ],
+    "gallery": [
+      "/rooms/room-sunrise-1.jpg",
+      "/rooms/room-sunrise-2.jpg",
+      "/rooms/room-sunrise-3.jpg"
+    ]
+  },
+  "family-room-ac": {
+    "slug": "family-room-ac",
+    "name": "Family Room (AC)",
+    "price": "₹2,200 / Night",
+    "image": "/rooms/family-room.jpg",
+    "description": "Spacious air-conditioned family rooms with comfortable multiple bed setups, split AC, and excellent value for families.",
+    "longDescription": "Our spacious Family Room (AC) is designed to accommodate families or groups traveling together. Equipped with multiple comfortable beds, individual split air conditioning, a sitting area, and modern clean baths, it offers the perfect city base with easy access to markets and terminals.",
+    "amenities": [
+      "Split Air Conditioning",
+      "Ceiling Fan",
+      "Complimentary Breakfast",
+      "Room Service (24/7)",
+      "Large Room Layout",
+      "Double Beds Setup",
+      "Flat Screen TV"
+    ],
+    "specs": {
+      "size": "45 sq m / 480 sq ft",
+      "occupancy": "2 Adults + 2 Children",
+      "view": "City Market & Street View",
+      "bedding": "Multiple Beds Setup"
+    },
+    "features": [
+      {
+        "title": "Spacious Family Setup",
+        "desc": "Designed with families in mind, providing ample space for children and luggage.",
+        "image": "/rooms/family-room.jpg"
+      },
+      {
+        "title": "Complimentary Breakfast",
+        "desc": "Start your island-hopping days with a hot, delicious breakfast for the whole family.",
+        "image": "/rooms/family-room-family.jpg"
+      }
+    ],
+    "gallery": [
+      "/rooms/room-sunrise-3.jpg",
+      "/rooms/room-sunrise-4.jpg"
+    ]
+  }
+}

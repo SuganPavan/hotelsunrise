@@ -1,0 +1,116 @@
+[
+  {
+    "category": "Hotel",
+    "image": "/hotel-exterior.jpg",
+    "title": "Hotel Exterior Facade",
+    "alt": "Hotel Sunrise facade in Sri Vijaya Puram"
+  },
+  {
+    "category": "Hotel",
+    "image": "/hotel-lobby.jpg",
+    "title": "Lobby & Reception",
+    "alt": "Hotel Sunrise lobby and reception desk"
+  },
+  {
+    "category": "Rooms",
+    "image": "/rooms/room-sunrise-1.jpg",
+    "title": "Double Bedroom Layout",
+    "alt": "Double bedroom with writing desk and wardrobe"
+  },
+  {
+    "category": "Rooms",
+    "image": "/rooms/room-sunrise-2.jpg",
+    "title": "AC Double Bedroom",
+    "alt": "Clean double bedroom with split air conditioning and TV"
+  },
+  {
+    "category": "Rooms",
+    "image": "/rooms/room-sunrise-3.jpg",
+    "title": "Comfortable Double Bed",
+    "alt": "Double bed setup with wardrobe at Hotel Sunrise"
+  },
+  {
+    "category": "Rooms",
+    "image": "/rooms/family-room-family.jpg",
+    "title": "Family Guest Welcome",
+    "alt": "Family enjoying their stay"
+  },
+  {
+    "category": "Rooms",
+    "image": "/rooms/family-room.jpg",
+    "title": "Family Room Setup",
+    "alt": "Spacious family room interior at Hotel Sunrise"
+  },
+  {
+    "category": "Bathrooms",
+    "image": "/bathrooms/bathroom-basin.jpg",
+    "title": "Bathroom Wash Basin",
+    "alt": "Clean wash basin with modern faucet, wall mirror, and towel rings."
+  },
+  {
+    "category": "Bathrooms",
+    "image": "/bathrooms/bathroom-toilet-orange.jpg",
+    "title": "Ensuite Toilet (AC Double Room)",
+    "alt": "Equipped with wall-mounted water heater (geyser) and clean sanitation fittings."
+  },
+  {
+    "category": "Bathrooms",
+    "image": "/bathrooms/bathroom-toilet-flowers.jpg",
+    "title": "Ensuite Toilet (Family Room)",
+    "alt": "Spacious layout with floral tiles, continuous water supply, and geyser facility."
+  },
+  {
+    "category": "Bathrooms",
+    "image": "/bathrooms/bathroom-toilet-green.jpg",
+    "title": "Ensuite Toilet (Premium Double AC Room)",
+    "alt": "Clean toilet with modern green and orange patterned tiling, hot water shower, and geyser facility."
+  },
+  {
+    "category": "Beaches",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "title": "Corbyn's Cove Beach",
+    "alt": "Turquoise sandy shoreline"
+  },
+  {
+    "category": "Attractions",
+    "image": "/ross-island-ruins-roots.jpg",
+    "title": "Ross Island Ruins",
+    "alt": "Overgrown ruins on Ross Island"
+  },
+  {
+    "category": "Wildlife",
+    "image": "/images/wildlife/gecko.jpg",
+    "title": "Andaman Day Gecko",
+    "alt": "Bright green gecko on palm"
+  },
+  {
+    "category": "Wildlife",
+    "image": "/images/wildlife/turtle.jpg",
+    "title": "Loggerhead Sea Turtle",
+    "alt": "Sea turtle swimming underwater"
+  },
+  {
+    "category": "Wildlife",
+    "image": "/images/wildlife/crocodile.png",
+    "title": "Saltwater Crocodile",
+    "alt": "Saltwater crocodile on sand bank"
+  },
+  {
+    "category": "Wildlife",
+    "image": "/images/wildlife/viper.jpg",
+    "title": "Andaman Pit Viper",
+    "alt": "Green pit viper snake"
+  },
+  {
+    "category": "Wildlife",
+    "image": "/images/wildlife/keelback.png",
+    "title": "Checkered Keelback",
+    "alt": "Keelback snake in green grass"
+  },
+  {
+    "category": "Attractions",
+    "image": "https://images.unsplash.com/photo-1445820200644-69f87d946277?auto=format&fit=crop&w=1200&q=80",
+    "title": "State Bird Wood Pigeon",
+    "alt": "Rare endemic wood pigeon close up"
+  }
+]

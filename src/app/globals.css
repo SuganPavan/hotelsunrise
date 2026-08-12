@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f6;
+  --foreground: #1a1a1a;
+  --font-playfair: 'Playfair Display', serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@theme {
+  --color-primary: #091d36;
+  --color-accent: #c5a880;
+  --color-accent-hover: #b4966e;
+  --color-sand: #f4f1ea;
+  --color-sand-dark: #e2dac2;
+  --color-charcoal: #1a1a1a;
+  --color-pearl: #faf9f6;
+  
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-outfit), sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #faf9f6;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a880;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b4966e;
+}
+
+/* Custom premium styles */
+.text-stroke-gold {
+  -webkit-text-stroke: 1px #c5a880;
+  color: transparent;
+}
+
+/* Cinematic Video Container Transitions */
+.video-container-box {
+  transition: all 2000ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.video-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: border-radius 2000ms cubic-bezier(0.16, 1, 0.3, 1), transform 2000ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile (stacked initial layout - no full screen expansion) */
+@media (max-width: 767px) {
+  .video-container-box {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    padding: 0.5rem 1.25rem 0.5rem 1.25rem;
+  }
+  .video-container-box.state-initial .video-inner {
+    border-radius: 1.5rem;
+  }
+  .video-container-box.state-expanded {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    padding: 0.5rem 1.25rem 0.5rem 1.25rem;
+  }
+  .video-container-box.state-expanded .video-inner {
+    border-radius: 1.5rem;
+    transform: scale(1.04);
+  }
+}
+
+/* Tablet (split layout 45/55 to full screen) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .video-container-box.state-initial {
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    padding: 6.5rem 1.5rem 1.5rem 1.5rem;
+  }
+  .video-container-box.state-initial .video-inner {
+    border-radius: 1.5rem;
+  }
+  .video-container-box.state-expanded {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    padding: 0;
+  }
+  .video-container-box.state-expanded .video-inner {
+    border-radius: 0px;
+  }
+}
+
+/* Desktop (split layout 40/60 to full screen) */
+@media (min-width: 1024px) {
+  .video-container-box.state-initial {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    padding: 7rem 2.5rem 2.5rem 2.5rem;
+  }
+  .video-container-box.state-initial .video-inner {
+    border-radius: 2rem;
+  }
+  .video-container-box.state-expanded {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    padding: 0;
+  }
+  .video-container-box.state-expanded .video-inner {
+    border-radius: 0px;
+  }
+}
+
+/* Animated Wave Divider Keyframes */
+@keyframes waveSwayOne {
+  0% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(-30px, 2px, 0) scaleY(1.06);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes waveSwayTwo {
+  0% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(30px, -2px, 0) scaleY(0.94);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+.animate-wave-1 {
+  animation: waveSwayOne 14s ease-in-out infinite;
+}
+
+.animate-wave-2 {
+  animation: waveSwayTwo 18s ease-in-out infinite;
+}
+
+.organic-video-container {
+  clip-path: url(#wave-clip);
+  -webkit-clip-path: url(#wave-clip);
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes slowFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float-slow {
+  animation: slowFloat 8s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-card-float {
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 9s ease-in-out infinite;
+}
+
+/* Hide scrollbar utility for horizontal scroll row */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
