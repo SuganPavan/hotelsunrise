@@ -254,7 +254,7 @@ export default function HomePage() {
 
     const transitionTimer = setTimeout(() => {
       setIsTransitioned(true);
-    }, 16000); // Transitions to full screen at 16 seconds
+    }, 17000); // Transitions to full screen at 17 seconds
 
     const contentTimer = setTimeout(() => {
       setShowFinalContent(true);
@@ -285,12 +285,7 @@ export default function HomePage() {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    if (isTransitioned && videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch((err) => console.log("Video restart play failed:", err));
-    }
-  }, [isTransitioned]);
+
 
   // Parallax Hero Scroll Effect
   const heroRef = useRef(null);
@@ -536,13 +531,13 @@ export default function HomePage() {
             >
               <Link
                 href="/contact"
-                className="px-7 h-[58px] bg-accent/10 hover:bg-accent/20 backdrop-blur-md text-accent border border-accent/30 hover:border-accent font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(197,168,128,0.15)] hover:shadow-[0_0_20px_rgba(197,168,128,0.35)] w-full sm:w-auto"
+                className="px-7 h-[58px] bg-accent/10 hover:bg-accent/20 backdrop-blur-md text-accent border border-accent/30 hover:border-accent font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(197,168,128,0.15)] hover:shadow-[0_0_20px_rgba(197,168,128,0.35)] w-full sm:w-auto whitespace-nowrap"
               >
                 Book Your Stay
               </Link>
               <a
                 href="#experience"
-                className="px-7 h-[58px] bg-white/5 hover:bg-white/15 backdrop-blur-md text-pearl border border-white/20 hover:border-white/50 font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] w-full sm:w-auto"
+                className="px-7 h-[58px] bg-white/5 hover:bg-white/15 backdrop-blur-md text-pearl border border-white/20 hover:border-white/50 font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] w-full sm:w-auto whitespace-nowrap"
               >
                 Explore Nearby
               </a>
@@ -573,13 +568,13 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
               <Link
                 href="/contact"
-                className="px-7 h-[58px] bg-accent/10 hover:bg-accent/20 backdrop-blur-md text-accent border border-accent/30 hover:border-accent font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(197,168,128,0.15)] hover:shadow-[0_0_20px_rgba(197,168,128,0.35)] w-full sm:w-auto"
+                className="px-7 h-[58px] bg-accent/10 hover:bg-accent/20 backdrop-blur-md text-accent border border-accent/30 hover:border-accent font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(197,168,128,0.15)] hover:shadow-[0_0_20px_rgba(197,168,128,0.35)] w-full sm:w-auto whitespace-nowrap"
               >
                 Book Your Stay
               </Link>
               <a
                 href="#experience"
-                className="px-7 h-[58px] bg-white/5 hover:bg-white/15 backdrop-blur-md text-pearl border border-white/20 hover:border-white/50 font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] w-full sm:w-auto"
+                className="px-7 h-[58px] bg-white/5 hover:bg-white/15 backdrop-blur-md text-pearl border border-white/20 hover:border-white/50 font-sans text-xs tracking-widest uppercase font-bold transition-all duration-500 ease-out rounded-[8px] flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] w-full sm:w-auto whitespace-nowrap"
               >
                 Explore Nearby
               </a>

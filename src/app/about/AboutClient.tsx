@@ -12,8 +12,8 @@ export default function AboutClient() {
     <div className="bg-[#f8f9fa] min-h-screen text-[#2b2b2b] relative overflow-hidden flex flex-col justify-between selection:bg-accent selection:text-primary">
       <Navbar isHeroTransitioned={true} />
 
-      {/* Back to Home Button */}
-      <div className="absolute top-28 left-6 md:left-12 z-30">
+      {/* Floating Back Button */}
+      <div className="absolute top-22 left-6 md:top-28 md:left-12 z-30">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-[10px] md:text-xs text-pearl/80 hover:text-accent font-sans tracking-widest uppercase font-bold transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-[8px] border border-white/10"
@@ -23,7 +23,7 @@ export default function AboutClient() {
       </div>
 
       {/* Cinematic Header Banner */}
-      <section className="relative w-full min-h-[40vh] md:h-[45vh] flex items-center justify-center overflow-hidden bg-primary pt-44 pb-16 md:py-0">
+      <section className="relative w-full h-auto min-h-[30vh] md:min-h-[35vh] flex items-center justify-center overflow-hidden bg-primary pt-32 pb-12 md:pt-24 md:pb-12">
         <Image
           src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=2000&q=80"
           alt="Hotel Sunrise lounge"
@@ -34,6 +34,7 @@ export default function AboutClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#081628]/90 via-[#081628]/70 to-[#f8f9fa] z-10" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full text-center mt-8 space-y-4">
+
           <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-accent uppercase font-bold">
             Hotel Sunrise &bull; Sri Vijaya Puram
           </span>

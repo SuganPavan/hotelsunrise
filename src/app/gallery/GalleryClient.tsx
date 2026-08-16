@@ -23,8 +23,18 @@ export default function GalleryClient() {
     <div className="bg-[#f8f9fa] min-h-screen text-[#2b2b2b] relative overflow-hidden flex flex-col justify-between">
       <Navbar isHeroTransitioned={true} />
 
+      {/* Floating Back Button */}
+      <div className="absolute top-22 left-6 md:top-28 md:left-12 z-30">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[10px] md:text-xs text-pearl/80 hover:text-accent font-sans tracking-widest uppercase font-bold transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-[8px] border border-white/10"
+        >
+          <ArrowLeft size={14} /> Back to Home
+        </Link>
+      </div>
+
       {/* Cinematic Hero Banner */}
-      <div className="relative w-full h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-auto min-h-[30vh] md:min-h-[35vh] flex items-center justify-center overflow-hidden bg-primary pt-32 pb-12 md:pt-24 md:pb-12">
         {/* Background Image of Sea Coast */}
         <Image
           src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?auto=format&fit=crop&w=2000&q=90"
@@ -51,7 +61,7 @@ export default function GalleryClient() {
             Browse through a curated visual archive showcasing our premium city hotel accommodations, local cuisines, white sandy beaches, and unique island wildlife.
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-[50vh] -left-60 w-96 h-96 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
@@ -60,15 +70,9 @@ export default function GalleryClient() {
       {/* Main Container */}
       <main className="flex-grow pb-20 max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
         
-        {/* Sub Header & Back Button */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-charcoal/10 pb-6">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-xs text-accent hover:text-accent-hover font-sans tracking-widest uppercase font-bold transition-colors duration-300"
-          >
-            <ArrowLeft size={14} /> Back to Homepage
-          </Link>
-
+        {/* Sub Header */}
+        <div className="mb-12 flex flex-col md:flex-row md:items-center justify-end gap-6 border-b border-charcoal/10 pb-6">
+          
           {/* Filter tags */}
           <div className="flex flex-wrap gap-2">
             {["All", "Hotel", "Rooms", "Bathrooms", "Beaches", "Attractions", "Wildlife"].map(tag => (

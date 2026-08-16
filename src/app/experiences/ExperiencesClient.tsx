@@ -54,8 +54,8 @@ export default function ExperiencesClient() {
     <div className="bg-[#f8f9fa] min-h-screen text-[#2b2b2b] relative overflow-hidden flex flex-col justify-between">
       <Navbar isHeroTransitioned={true} />
 
-      {/* Desktop Floating Back Button */}
-      <div className="absolute top-28 left-6 md:left-12 z-30 hidden md:block">
+      {/* Floating Back Button */}
+      <div className="absolute top-22 left-6 md:top-28 md:left-12 z-30">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-[10px] md:text-xs text-pearl/80 hover:text-accent font-sans tracking-widest uppercase font-bold transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-[8px] border border-white/10"
@@ -65,7 +65,7 @@ export default function ExperiencesClient() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full h-auto min-h-[30vh] md:min-h-[35vh] pt-22 pb-20 md:pt-24 md:pb-24 flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-auto min-h-[30vh] md:min-h-[35vh] pt-32 pb-20 md:pt-24 md:pb-24 flex items-center justify-center overflow-hidden">
         {/* Background Image: Scenic view */}
         <Image
           src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=90"
@@ -81,13 +81,6 @@ export default function ExperiencesClient() {
 
         {/* Hero Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full text-center mt-8 space-y-6">
-          {/* Mobile Back Link */}
-          <Link
-            href="/"
-            className="inline-flex md:hidden items-center gap-2 text-[10px] text-pearl/80 hover:text-accent font-sans tracking-widest uppercase font-bold transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-[8px] border border-white/10 mb-4"
-          >
-            <ArrowLeft size={14} /> Back to Home
-          </Link>
 
           <div className="inline-flex items-center gap-2">
             <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-accent uppercase font-bold bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
