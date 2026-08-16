@@ -81,6 +81,16 @@ export default function RoomDetailClient({ room }: Props) {
             <div className="text-accent font-serif text-lg font-semibold">{room.price}</div>
           </div>
         </div>
+
+        {/* Bouncing Scroll Down Indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 md:gap-1.5 animate-bounce">
+          <span className="text-[7px] md:text-[9px] font-sans tracking-[0.25em] text-pearl/50 uppercase font-bold">
+            Scroll Down
+          </span>
+          <div className="w-4 h-6 md:w-5 md:h-8 rounded-full border border-pearl/30 flex justify-center p-1 md:p-1.5">
+            <div className="w-0.5 h-1.5 md:w-1 md:h-2 rounded-full bg-accent animate-pulse" />
+          </div>
+        </div>
       </section>
 
       {/* 2. Overview & Room Specifications */}

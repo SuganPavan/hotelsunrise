@@ -1,6 +1,6 @@
 export default function cloudinaryLoader({ src, width, quality }: { src: string; width: number; quality?: number }) {
-  // If it's already an external URL (like Unsplash) or the updated turtle image, return it as is
-  if (src.startsWith('http://') || src.startsWith('https://') || src.includes('turtle.jpg')) {
+  // If it's already an external URL (like Unsplash) or the updated turtle image/hero-poster, return it as is
+  if (src.startsWith('http://') || src.startsWith('https://') || src.includes('turtle.jpg') || src.includes('hero-poster-')) {
     return src;
   }
 

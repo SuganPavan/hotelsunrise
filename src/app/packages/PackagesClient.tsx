@@ -25,7 +25,7 @@ export default function PackagesClient() {
       <Navbar isHeroTransitioned={true} />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[65vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-auto min-h-[30vh] md:min-h-[35vh] pt-22 pb-20 md:pt-24 md:pb-24 flex items-center justify-center overflow-hidden">
         {/* Background Image: Andaman scenic view */}
         <Image
           src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=90"
@@ -34,8 +34,10 @@ export default function PackagesClient() {
           priority
           className="object-cover"
         />
-        {/* Navy blue gradient overlay to keep branding colors & text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#081628]/85 via-[#081628]/60 to-[#f8f9fa] z-10" />
+        {/* Navy blue gradient overlay for high contrast text area */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#081628]/95 via-[#081628]/80 to-transparent z-10" />
+        {/* Bottom smooth blend overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#f8f9fa] to-transparent z-15 opacity-90" />
 
         {/* Hero Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full text-center mt-8 space-y-6">
@@ -48,24 +50,40 @@ export default function PackagesClient() {
             Stay Comfortably. <br />
             <span className="text-accent italic font-normal">Explore Andaman.</span>
           </h1>
-          <p className="max-w-2xl mx-auto font-sans text-pearl/85 text-xs md:text-base leading-relaxed font-light">
+          <p className="max-w-2xl mx-auto font-sans text-pearl font-normal text-xs md:text-base leading-relaxed drop-shadow-sm">
             Hotel Sunrise is centrally located in Sri Vijaya Puram, making it the perfect place to stay before exploring the beautiful Andaman Islands.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <button
-              onClick={scrollToPackages}
-              className="px-8 py-3.5 bg-accent hover:bg-accent-hover text-[#081628] font-sans font-bold tracking-widest text-xs uppercase rounded-[8px] transition-all duration-300 shadow-md hover:-translate-y-0.5"
-            >
-              View Packages
-            </button>
             <a
-              href="https://wa.me/919732470317?text=Hello%20Hotel%20Sunrise%20Reservations%2C%20I%20would%20like%20to%20book%20a%20stay%20with%20you."
+              href="https://wa.me/919732470317?text=Hello%20Hotel%20Sunrise%20Reservations%2C%20I%20am%20interested%20in%20booking%20an%20Andaman%20travel%20package."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 bg-white/15 hover:bg-white/25 text-pearl border border-white/20 hover:border-white/45 font-sans font-bold tracking-widest text-xs uppercase rounded-[8px] transition-all duration-300 backdrop-blur-sm"
+              className="px-8 py-3.5 bg-accent hover:bg-accent-hover text-[#081628] font-sans font-bold tracking-widest text-xs uppercase rounded-[8px] transition-all duration-300 shadow-md hover:-translate-y-0.5"
             >
-              Book Your Stay
+              Book via WhatsApp
             </a>
+            <a
+              href="mailto:hotelsunrisesrivijayapuram@gmail.com?subject=Package%20Booking%20Enquiry&body=Hello%20Hotel%20Sunrise%20Reservations%2C%20I%20am%20interested%20in%20booking%20a%20travel%20package%20stay."
+              onClick={() => {
+                try {
+                  navigator.clipboard.writeText("hotelsunrisesrivijayapuram@gmail.com");
+                  alert("Email address copied to clipboard: hotelsunrisesrivijayapuram@gmail.com");
+                } catch (err) {}
+              }}
+              className="px-8 py-3.5 bg-[#081628]/85 hover:bg-[#081628] text-pearl border border-white/20 hover:border-white/45 font-sans font-bold tracking-widest text-xs uppercase rounded-[8px] transition-all duration-300 backdrop-blur-sm"
+            >
+              Book via Email
+            </a>
+          </div>
+        </div>
+
+        {/* Bouncing Scroll Down Indicator */}
+        <div className="absolute bottom-3 md:bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 md:gap-1.5 animate-bounce">
+          <span className="text-[7px] md:text-[9px] font-sans tracking-[0.25em] text-pearl/50 uppercase font-bold">
+            Scroll Down
+          </span>
+          <div className="w-4 h-6 md:w-5 md:h-8 rounded-full border border-pearl/30 flex justify-center p-1 md:p-1.5">
+            <div className="w-0.5 h-1.5 md:w-1 md:h-2 rounded-full bg-accent animate-pulse" />
           </div>
         </div>
       </section>

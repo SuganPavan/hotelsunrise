@@ -33,7 +33,7 @@ export default function PackageDetailClient({ pkg }: Props) {
       <Navbar isHeroTransitioned={true} />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[65vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-auto min-h-[40vh] lg:min-h-[50vh] pt-24 pb-28 lg:pt-28 lg:pb-32 flex items-center justify-center overflow-hidden">
         <Image
           src={pkg.image}
           alt={pkg.title}
@@ -44,7 +44,7 @@ export default function PackageDetailClient({ pkg }: Props) {
         <div className="absolute inset-0 bg-gradient-to-b from-[#081628]/85 via-[#081628]/60 to-[#f8f9fa] z-10" />
 
         {/* Hero Content */}
-        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full text-center mt-8 space-y-6">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full text-center mt-4 space-y-6">
           {/* Desktop Floating Back Button */}
           <div className="absolute top-28 left-6 md:left-12 z-30 hidden md:block">
             <Link
@@ -92,38 +92,39 @@ export default function PackageDetailClient({ pkg }: Props) {
                   alert("Email address copied to clipboard: hotelsunrisesrivijayapuram@gmail.com");
                 } catch (err) {}
               }}
-              className="px-8 py-3.5 bg-white/15 hover:bg-white/25 text-pearl border border-white/20 hover:border-white/45 font-sans font-bold tracking-widest text-xs uppercase rounded-[8px] transition-all duration-300 backdrop-blur-sm"
+              className="px-8 py-3.5 bg-[#081628]/85 hover:bg-[#081628] text-pearl border border-white/20 hover:border-white/45 font-sans font-bold tracking-widest text-xs uppercase rounded-[8px] transition-all duration-300 backdrop-blur-sm"
             >
               Book via Email
             </a>
           </div>
-        </div>
-      </section>
+          </div>
+          
+        </section>
 
       {/* Package Header Details Card */}
-      <section className="relative z-20 mt-8 md:-mt-16 max-w-4xl mx-auto w-full px-6">
-        <div className="bg-white border border-[#081628]/10 rounded-[20px] p-8 md:p-10 shadow-lg grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-          <div className="space-y-1 md:border-r border-[#081628]/10 md:pr-6">
-            <span className="text-[10px] text-[#8a6835] uppercase tracking-widest font-semibold font-sans">
+      <section className="relative z-20 mt-6 md:-mt-16 max-w-4xl mx-auto w-full px-4 md:px-6">
+        <div className="bg-white border border-[#081628]/10 rounded-[16px] md:rounded-[20px] p-4 md:p-8 shadow-md grid grid-cols-3 gap-2 md:gap-6 text-center md:text-left">
+          <div className="space-y-0.5 border-r border-[#081628]/10 pr-2 md:pr-6">
+            <span className="text-[8px] md:text-[10px] text-[#8a6835] uppercase tracking-widest font-semibold font-sans">
               Package Type
             </span>
-            <h4 className="font-serif text-base font-bold text-[#081628]">
+            <h4 className="font-serif text-[11px] md:text-base font-bold text-[#081628] leading-tight">
               {pkg.category}
             </h4>
           </div>
-          <div className="space-y-1 md:border-r border-[#081628]/10 md:px-6">
-            <span className="text-[10px] text-[#8a6835] uppercase tracking-widest font-semibold font-sans">
+          <div className="space-y-0.5 border-r border-[#081628]/10 px-2 md:px-6">
+            <span className="text-[8px] md:text-[10px] text-[#8a6835] uppercase tracking-widest font-semibold font-sans">
               Duration
             </span>
-            <h4 className="font-serif text-base font-bold text-[#081628]">
+            <h4 className="font-serif text-[11px] md:text-base font-bold text-[#081628] leading-tight">
               {pkg.duration}
             </h4>
           </div>
-          <div className="space-y-1 md:pl-6">
-            <span className="text-[10px] text-[#8a6835] uppercase tracking-widest font-semibold font-sans">
+          <div className="space-y-0.5 pl-2 md:pl-6">
+            <span className="text-[8px] md:text-[10px] text-[#8a6835] uppercase tracking-widest font-semibold font-sans">
               Price Plan
             </span>
-            <h4 className="font-serif text-base font-bold text-[#081628]">
+            <h4 className="font-serif text-[11px] md:text-base font-bold text-[#081628] leading-tight">
               {pkg.price}
             </h4>
           </div>
@@ -191,12 +192,16 @@ export default function PackageDetailClient({ pkg }: Props) {
                 <MessageSquare size={13} /> Book via WhatsApp
               </a>
               <a 
-                href={whatsappContactUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={emailBookingUrl}
+                onClick={() => {
+                  try {
+                    navigator.clipboard.writeText("hotelsunrisesrivijayapuram@gmail.com");
+                    alert("Email address copied to clipboard: hotelsunrisesrivijayapuram@gmail.com");
+                  } catch (err) {}
+                }}
                 className="w-full text-center py-3.5 bg-white/10 hover:bg-white/25 text-pearl border border-white/20 hover:border-white/45 transition-all duration-300 font-sans tracking-widest text-[10px] uppercase font-bold flex items-center justify-center gap-2 rounded-[8px]"
               >
-                Inquire Details
+                <Mail size={13} /> Book via Email
               </a>
             </div>
           </div>

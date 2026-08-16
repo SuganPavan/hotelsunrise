@@ -54,8 +54,18 @@ export default function ExperiencesClient() {
     <div className="bg-[#f8f9fa] min-h-screen text-[#2b2b2b] relative overflow-hidden flex flex-col justify-between">
       <Navbar isHeroTransitioned={true} />
 
+      {/* Desktop Floating Back Button */}
+      <div className="absolute top-28 left-6 md:left-12 z-30 hidden md:block">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[10px] md:text-xs text-pearl/80 hover:text-accent font-sans tracking-widest uppercase font-bold transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-[8px] border border-white/10"
+        >
+          <ArrowLeft size={14} /> Back to Home
+        </Link>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative w-full h-[55vh] md:h-[65vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-auto min-h-[30vh] md:min-h-[35vh] pt-22 pb-20 md:pt-24 md:pb-24 flex items-center justify-center overflow-hidden">
         {/* Background Image: Scenic view */}
         <Image
           src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=90"
@@ -64,11 +74,21 @@ export default function ExperiencesClient() {
           priority
           className="object-cover"
         />
-        {/* Navy blue gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#081628]/85 via-[#081628]/60 to-[#f8f9fa] z-10" />
+        {/* Navy blue gradient overlay for high contrast text area */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#081628]/95 via-[#081628]/80 to-transparent z-10" />
+        {/* Bottom smooth blend overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#f8f9fa] to-transparent z-15 opacity-90" />
 
         {/* Hero Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 w-full text-center mt-8 space-y-6">
+          {/* Mobile Back Link */}
+          <Link
+            href="/"
+            className="inline-flex md:hidden items-center gap-2 text-[10px] text-pearl/80 hover:text-accent font-sans tracking-widest uppercase font-bold transition-all duration-300 bg-white/5 hover:bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-[8px] border border-white/10 mb-4"
+          >
+            <ArrowLeft size={14} /> Back to Home
+          </Link>
+
           <div className="inline-flex items-center gap-2">
             <span className="text-[10px] md:text-[11px] font-sans tracking-[0.4em] text-accent uppercase font-bold bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
               Hotel Sunrise &bull; Excursions Guide
@@ -78,9 +98,32 @@ export default function ExperiencesClient() {
             Andaman Excursions <br />
             <span className="text-accent italic font-normal">& Local Experiences</span>
           </h1>
-          <p className="max-w-2xl mx-auto font-sans text-pearl/85 text-xs md:text-base leading-relaxed font-light">
+          <p className="max-w-2xl mx-auto font-sans text-pearl font-normal text-xs md:text-base leading-relaxed drop-shadow-sm">
             Stay centrally at Hotel Sunrise in Sri Vijaya Puram and let our hosts guide you through historical landmarks, marine reserves, pristine beaches, and forest hiking trails.
           </p>
+        </div>
+
+        {/* Modern Loop Line Scroll Down Indicator */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+          <span className="text-[7px] md:text-[8px] font-sans tracking-[0.3em] text-pearl/40 uppercase font-light">
+            Scroll
+          </span>
+          <div className="w-[1px] h-10 bg-white/20 relative overflow-hidden rounded-full">
+            <div 
+              className="absolute top-0 left-0 w-full h-3 bg-gradient-to-b from-[#8a6835] to-[#f8f9fa] rounded-full"
+              style={{
+                animation: "scrollDownLine 2.2s cubic-bezier(0.15, 0.85, 0.45, 1) infinite"
+              }}
+            />
+          </div>
+          <style dangerouslySetInnerHTML={{__html: `
+            @keyframes scrollDownLine {
+              0% { transform: translateY(-100%); opacity: 0; }
+              30% { opacity: 1; }
+              60% { opacity: 1; }
+              100% { transform: translateY(300%); opacity: 0; }
+            }
+          `}} />
         </div>
       </section>
 
@@ -88,13 +131,7 @@ export default function ExperiencesClient() {
       <main className="flex-grow py-20 max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
         
         {/* Navigation & Controls */}
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between border-b border-charcoal/10 pb-8">
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-xs text-accent-hover hover:text-accent font-sans tracking-widest uppercase font-bold transition-colors duration-300"
-          >
-            <ArrowLeft size={14} /> Back to Homepage
-          </Link>
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-end border-b border-charcoal/10 pb-8">
           
           {/* Search and Category Filters */}
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">

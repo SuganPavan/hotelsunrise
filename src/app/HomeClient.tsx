@@ -124,7 +124,7 @@ const EXPERIENCES = [
 const WILDLIFE = [
   { title: "Andaman Wood Pigeon", desc: "Spot this rare, endemic bird foraging in the deep forest canopies of the islands.", image: "https://images.unsplash.com/photo-1445820200644-69f87d946277?auto=format&fit=crop&w=800&q=80", slug: "chidiya-tapu" },
   { title: "Andaman Day Gecko", desc: "Observe these bright green, day-active geckos climbing smooth forest tree trunks.", image: "/images/wildlife/gecko.jpg", slug: "chidiya-tapu" },
-  { title: "Loggerhead Sea Turtle", desc: "Witness massive marine turtles nesting along pristine, protected tropical beaches.", image: "/images/wildlife/turtle.png", slug: "north-bay-island" },
+  { title: "Loggerhead Sea Turtle", desc: "Witness massive marine turtles nesting along pristine, protected tropical beaches.", image: "/images/wildlife/turtle.jpg", slug: "north-bay-island" },
   { title: "Saltwater Crocodile", desc: "Witness these ancient, massive reptilian predators in tidal estuaries and creeks.", image: "/images/wildlife/crocodile.png", slug: "chidiya-tapu" },
   { title: "Andaman Pit Viper", desc: "Spot this venomous endemic green snake coiled quietly in the branches of lowland rainforests.", image: "/images/wildlife/viper.jpg", slug: "chidiya-tapu" },
   { title: "Checkered Keelback", desc: "Discover this native non-venomous freshwater snake hunting in streams and ponds.", image: "/images/wildlife/keelback.png", slug: "mahatma-gandhi-marine-national-park" },
@@ -213,6 +213,7 @@ export default function HomePage() {
   
   // Active highlighted card state (for Nearby Attractions / Location Cards)
   const [activeCardIndex, setActiveCardIndex] = useState(0); // Start at index 0 (Cellular Jail - always visible on load)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     const cardCycleTimer = setInterval(() => {
@@ -259,18 +260,15 @@ export default function HomePage() {
       setShowFinalContent(true);
     }, 17000); // Shows Stage 2 content at 17 seconds
 
-    let videoTimer: NodeJS.Timeout;
-    if (window.innerWidth >= 1024) {
-      videoTimer = setTimeout(() => {
-        setLoadVideo(true);
-      }, 1000); // 1-second delay to allow critical initial LCP resources to load
-    }
+    const videoTimer = setTimeout(() => {
+      setLoadVideo(true);
+    }, 1000); // 1-second delay to allow critical initial LCP resources to load
 
     return () => {
       window.removeEventListener("resize", handleResize);
       clearTimeout(transitionTimer);
       clearTimeout(contentTimer);
-      if (videoTimer) clearTimeout(videoTimer);
+      clearTimeout(videoTimer);
     };
   }, []);
 
@@ -284,6 +282,15 @@ export default function HomePage() {
 
   // Reviews Slider State
   const [currentReview, setCurrentReview] = useState(0);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (isTransitioned && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch((err) => console.log("Video restart play failed:", err));
+    }
+  }, [isTransitioned]);
 
   // Parallax Hero Scroll Effect
   const heroRef = useRef(null);
@@ -375,6 +382,7 @@ export default function HomePage() {
             .hero-video-initial video {
               transform: scale(1.15) translate3d(17%, 2%, 0);
             }
+          }
           @media (max-width: 1023px) {
             .rooms-mobile-override {
               transform: none !important;
@@ -428,43 +436,57 @@ export default function HomePage() {
             </svg>
           )}
           
-          {isMounted && isMobile ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            onPlaying={() => setIsVideoPlaying(true)}
+            className="w-full h-full object-cover brightness-125 lg:brightness-100"
+            style={isMounted ? { 
+              imageRendering: "auto",
+              WebkitBackfaceVisibility: "hidden",
+              backfaceVisibility: "hidden",
+              willChange: "transform",
+              transform: (isTransitioned || isMobile) 
+                ? "scale(1) translate3d(0, 0, 0)" 
+                : "scale(1.15) translate3d(17%, 2%, 0)",
+              transition: "transform 2500ms cubic-bezier(0.25, 1, 0.5, 1)"
+            } : undefined}
+          >
+            {loadVideo && (
+              <>
+                <source src={getOptimizedVideoUrl("/hero-web.mp4")} type="video/mp4" />
+                <source src="/hero-web.mp4" type="video/mp4" />
+              </>
+            )}
+          </video>
+
+          {/* Smooth Fading Poster Overlay */}
+          <div 
+            className={`absolute inset-0 z-12 transition-opacity duration-500 ease-out pointer-events-none ${isVideoPlaying ? 'opacity-0' : 'opacity-100'}`}
+          >
+            {/* Mobile Poster Image */}
             <Image
-              src="/cove-sunset.jpg"
-              alt="Hotel Sunrise Andaman Resort Sunset view"
+              src="/hero-poster-mobile.jpg"
+              alt="Hotel Sunrise Resort Entrance Sunset view"
               fill
               priority
-              className="object-cover"
+              className="object-cover lg:hidden brightness-125"
               sizes="100vw"
             />
-          ) : (
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="none"
-              poster="/cove-sunset.jpg"
-              className="w-full h-full object-cover"
-              style={isMounted ? { 
-                imageRendering: "auto",
-                WebkitBackfaceVisibility: "hidden",
-                backfaceVisibility: "hidden",
-                willChange: "transform",
-                transform: (isTransitioned || isMobile) 
-                  ? "scale(1) translate3d(0, 0, 0)" 
-                  : "scale(1.15) translate3d(17%, 2%, 0)",
-                transition: "transform 2500ms cubic-bezier(0.25, 1, 0.5, 1)"
-              } : undefined}
-            >
-              {loadVideo && (
-                <>
-                  <source src={getOptimizedVideoUrl("/video/i_need_same_one.mp4")} type="video/mp4" />
-                  <source src="/video/i_need_same_one.mp4" type="video/mp4" />
-                </>
-              )}
-            </video>
-          )}
+            {/* Desktop Poster Image */}
+            <Image
+              src="/hero-poster-desktop.jpg"
+              alt="Hotel Sunrise Resort Entrance Sunset view"
+              fill
+              priority
+              className="object-cover hidden lg:block brightness-100"
+              sizes="100vw"
+            />
+          </div>
         </div>
         
         {/* Content Wrapper (Positions content absolute on top of video container) */}
@@ -565,8 +587,7 @@ export default function HomePage() {
           </div>
 
           {/* RIGHT COLUMN: Renders 8 Floating Location Cards around the video card bounds */}
-          {!isMobile && (
-            <div className="w-full lg:w-[70%] pointer-events-none relative h-[290px] sm:h-[340px] md:h-[380px] lg:h-[600px] flex items-center justify-center">
+          <div className="hidden lg:flex w-full lg:w-[70%] pointer-events-none relative h-[290px] sm:h-[340px] md:h-[380px] lg:h-[600px] items-center justify-center">
             {/* Floating Location Card 1: Cellular Jail */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
@@ -831,7 +852,6 @@ export default function HomePage() {
               <div className="font-sans text-[10px] tracking-widest text-accent uppercase font-bold pl-6">10–15 min</div>
             </motion.div>
           </div>
-          )}
 
         </div>
 
