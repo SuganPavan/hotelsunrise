@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const canonicalUrl = `https://hotelsunrise.com/rooms/${room.slug}`;
+  const canonicalUrl = `https://www.hotelsunriseandaman.com/rooms/${room.slug}`;
 
   return {
     title: `${room.name} | Hotel Sunrise Sri Vijaya Puram`,
@@ -85,19 +85,19 @@ export default async function RoomDetailPage({ params }: Props) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://hotelsunrise.com"
+        "item": "https://www.hotelsunriseandaman.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Accommodations",
-        "item": "https://hotelsunrise.com/rooms"
+        "item": "https://www.hotelsunriseandaman.com/rooms"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": room.name,
-        "item": `https://hotelsunrise.com/rooms/${room.slug}`
+        "item": `https://www.hotelsunriseandaman.com/rooms/${room.slug}`
       }
     ]
   };

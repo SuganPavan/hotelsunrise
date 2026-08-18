@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Discover curated Andaman tour packages with comfortable hotel stays. Explore detailed itineraries for Honeymoon, Family, Adventure, and Budget travellers in Port Blair.",
   alternates: {
-    canonical: "https://hotelsunrise.com/packages",
+    canonical: "https://www.hotelsunriseandaman.com/packages",
   },
   openGraph: {
     title: "Andaman Travel Packages & Itineraries | Hotel Sunrise",
     description:
       "Discover curated Andaman tour packages with comfortable hotel stays. Explore detailed itineraries for Honeymoon, Family, Adventure, and Budget travellers in Port Blair.",
-    url: "https://hotelsunrise.com/packages",
+    url: "https://www.hotelsunriseandaman.com/packages",
     type: "website",
   },
 };

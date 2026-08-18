@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hotelsunrise.com"),
+  metadataBase: new URL("https://www.hotelsunriseandaman.com"),
   title: "Hotel Sunrise | Comfort & Convenience | Sri Vijayapuram, Andaman",
   description:
     "Experience a premium, comfortable stay at Hotel Sunrise in Sri Vijayapuram, Andaman. Located at Babu Lane, Aberdeen Bazaar near ferry terminals and major attractions.",

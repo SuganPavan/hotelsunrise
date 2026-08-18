@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "View our clean, well-maintained ensuite bathroom setups at Hotel Sunrise. Features include modern sanitation fittings, continuous hot water geysers, and large wall mirrors.",
   alternates: {
-    canonical: "https://hotelsunrise.com/bathrooms",
+    canonical: "https://www.hotelsunriseandaman.com/bathrooms",
   },
   openGraph: {
     title: "Ensuite Bathroom Facilities | Hotel Sunrise Sri Vijaya Puram",
     description:
       "View our clean, well-maintained ensuite bathroom setups at Hotel Sunrise. Features include modern sanitation fittings, continuous hot water geysers, and large wall mirrors.",
-    url: "https://hotelsunrise.com/bathrooms",
+    url: "https://www.hotelsunriseandaman.com/bathrooms",
     type: "website",
   },
 };

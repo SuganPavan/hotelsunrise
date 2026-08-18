@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://hotelsunrise.com";
+  const baseUrl = "https://www.hotelsunriseandaman.com";
   const lastModified = new Date();
 
   const routes = [

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Plan your local Andaman excursions and sightseeing activities. Explore historic landmarks, island ruins, diving reefs, and nature parks from our centrally located hotel.",
   alternates: {
-    canonical: "https://hotelsunrise.com/experiences",
+    canonical: "https://www.hotelsunriseandaman.com/experiences",
   },
   openGraph: {
     title: "Andaman Local Sightseeing & Activities | Hotel Sunrise",
     description:
       "Plan your local Andaman excursions and sightseeing activities. Explore historic landmarks, island ruins, diving reefs, and nature parks from our centrally located hotel.",
-    url: "https://hotelsunrise.com/experiences",
+    url: "https://www.hotelsunriseandaman.com/experiences",
     type: "website",
   },
 };

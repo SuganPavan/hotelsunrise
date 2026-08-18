@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://hotelsunrise.com/sitemap.xml",
+    sitemap: "https://www.hotelsunriseandaman.com/sitemap.xml",
   };
 }

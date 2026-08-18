@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Get in touch with the reservations team at Hotel Sunrise in Sri Vijaya Puram (Port Blair), Andaman. Submit a secure booking inquiry, view our location map, and contact our concierge.",
   alternates: {
-    canonical: "https://hotelsunrise.com/contact",
+    canonical: "https://www.hotelsunriseandaman.com/contact",
   },
   openGraph: {
     title: "Contact Us | Hotel Sunrise Sri Vijaya Puram Andaman",
     description:
       "Get in touch with the reservations team at Hotel Sunrise in Sri Vijaya Puram (Port Blair), Andaman. Submit a secure booking inquiry, view our location map, and contact our concierge.",
-    url: "https://hotelsunrise.com/contact",
+    url: "https://www.hotelsunriseandaman.com/contact",
     type: "website",
   },
 };

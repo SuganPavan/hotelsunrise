@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const canonicalUrl = `https://hotelsunrise.com/experiences/${attraction.slug}`;
+  const canonicalUrl = `https://www.hotelsunriseandaman.com/experiences/${attraction.slug}`;
 
   return {
     title: attraction.seo.title,
@@ -113,19 +113,19 @@ export default async function ExperienceDetailPage({ params }: Props) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://hotelsunrise.com"
+        "item": "https://www.hotelsunriseandaman.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Experiences",
-        "item": "https://hotelsunrise.com/experiences"
+        "item": "https://www.hotelsunriseandaman.com/experiences"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": attraction.name,
-        "item": `https://hotelsunrise.com/experiences/${attraction.slug}`
+        "item": `https://www.hotelsunriseandaman.com/experiences/${attraction.slug}`
       }
     ]
   };

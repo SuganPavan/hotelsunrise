@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Browse through our photo gallery showcasing comfortable rooms, clean bathroom setups, local sightseeing attractions, white sand beaches, and exotic Andaman wildlife.",
   alternates: {
-    canonical: "https://hotelsunrise.com/gallery",
+    canonical: "https://www.hotelsunriseandaman.com/gallery",
   },
   openGraph: {
     title: "Photo Gallery | Hotel Sunrise Sri Vijaya Puram Andaman",
     description:
       "Browse through our photo gallery showcasing comfortable rooms, clean bathroom setups, local sightseeing attractions, white sand beaches, and exotic Andaman wildlife.",
-    url: "https://hotelsunrise.com/gallery",
+    url: "https://www.hotelsunriseandaman.com/gallery",
     type: "website",
   },
 };

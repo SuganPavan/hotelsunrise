@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const canonicalUrl = `https://hotelsunrise.com/packages/${pkg.slug}`;
+  const canonicalUrl = `https://www.hotelsunriseandaman.com/packages/${pkg.slug}`;
 
   return {
     title: `${pkg.title} | Hotel Sunrise | Andaman`,
@@ -70,19 +70,19 @@ export default async function PackageDetailPage({ params }: Props) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://hotelsunrise.com"
+        "item": "https://www.hotelsunriseandaman.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Packages",
-        "item": "https://hotelsunrise.com/packages"
+        "item": "https://www.hotelsunriseandaman.com/packages"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": pkg.title,
-        "item": `https://hotelsunrise.com/packages/${pkg.slug}`
+        "item": `https://www.hotelsunriseandaman.com/packages/${pkg.slug}`
       }
     ]
   };
