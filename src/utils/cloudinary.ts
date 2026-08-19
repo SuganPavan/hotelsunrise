@@ -48,5 +48,5 @@ export function getOptimizedVideoUrl(src: string) {
     : 'hotel-sunrise';
   const folderPrefix = folder ? `${folder}/` : '';
 
-  return `https://res.cloudinary.com/${cloudName}/video/upload/f_auto,q_auto/${folderPrefix}${cleanSrc}`;
+  return `https://res.cloudinary.com/${cloudName}/video/upload/f_mp4,q_auto/${folderPrefix}${cleanSrc}`;
 }
