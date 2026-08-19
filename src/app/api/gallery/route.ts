@@ -1,14 +1,18 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import galleryData from '@/data/gallery.json';
 
 export async function GET() {
   try {
     const filePath = path.join(process.cwd(), 'src/data/gallery.json');
-    const fileData = fs.readFileSync(filePath, 'utf-8');
-    return NextResponse.json(JSON.parse(fileData));
+    if (fs.existsSync(filePath)) {
+      const fileData = fs.readFileSync(filePath, 'utf-8');
+      return NextResponse.json(JSON.parse(fileData));
+    }
+    return NextResponse.json(galleryData);
   } catch (error: any) {
-    return NextResponse.json({ error: 'Failed to read gallery data: ' + error.message }, { status: 500 });
+    return NextResponse.json(galleryData);
   }
 }
 

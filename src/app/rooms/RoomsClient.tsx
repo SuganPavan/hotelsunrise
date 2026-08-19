@@ -16,7 +16,14 @@ export default function RoomsClient() {
 
   useEffect(() => {
     fetch("/api/rooms")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP error: " + res.status);
+        const contentType = res.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new TypeError("Response was not JSON");
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data && typeof data === "object" && !data.error) {
           setRooms(Object.values(data));

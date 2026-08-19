@@ -193,7 +193,14 @@ export default function HomePage() {
 
   useEffect(() => {
     fetch("/api/rooms")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP error: " + res.status);
+        const contentType = res.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new TypeError("Response was not JSON");
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data && typeof data === "object" && !data.error) {
           setRooms(Object.values(data));
@@ -202,7 +209,14 @@ export default function HomePage() {
       .catch((err) => console.error("Failed to load rooms dynamically:", err));
 
     fetch("/api/gallery")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP error: " + res.status);
+        const contentType = res.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new TypeError("Response was not JSON");
+        }
+        return res.json();
+      })
       .then((data) => {
         if (Array.isArray(data)) {
           setGallery(data);
@@ -419,6 +433,7 @@ export default function HomePage() {
               className="absolute inset-0 w-full h-full pointer-events-none z-20 text-accent/35"
             >
               <motion.path 
+                d={isTransitioned ? fullPath100 : activeCardPath100}
                 animate={{ 
                   d: isTransitioned ? fullPath100 : activeCardPath100,
                   opacity: isTransitioned ? 0 : 1 
@@ -855,6 +870,7 @@ export default function HomePage() {
           <defs>
             <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
               <motion.path 
+                d={isTransitioned ? fullPath : activeCardPath}
                 animate={{ d: isTransitioned ? fullPath : activeCardPath }}
                 transition={{ duration: 2.5, ease: [0.25, 1, 0.5, 1] }}
               />

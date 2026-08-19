@@ -1,14 +1,18 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import roomsData from '@/data/rooms.json';
 
 export async function GET() {
   try {
     const filePath = path.join(process.cwd(), 'src/data/rooms.json');
-    const fileData = fs.readFileSync(filePath, 'utf-8');
-    return NextResponse.json(JSON.parse(fileData));
+    if (fs.existsSync(filePath)) {
+      const fileData = fs.readFileSync(filePath, 'utf-8');
+      return NextResponse.json(JSON.parse(fileData));
+    }
+    return NextResponse.json(roomsData);
   } catch (error: any) {
-    return NextResponse.json({ error: 'Failed to read rooms data: ' + error.message }, { status: 500 });
+    return NextResponse.json(roomsData);
   }
 }
 
