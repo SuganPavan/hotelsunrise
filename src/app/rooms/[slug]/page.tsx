@@ -35,21 +35,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const room = getRoomBySlug(slug);
   if (!room) {
     return {
-      title: "Room Not Found | Hotel Sunrise Sri Vijaya Puram",
+      title: "Room Not Found | Hotel Sunrise Andaman",
     };
+  }
+
+  let title = `${room.name} | Hotel Sunrise Sri Vijaya Puram`;
+  let description = room.description;
+
+  if (slug === "double-bedroom-ac") {
+    title = "AC Double Room in Port Blair | Hotel Sunrise Andaman";
+    description = "Book our comfortable AC double room in Port Blair. Hotel Sunrise offers clean, modern amenities, private bathroom, and free Wi-Fi near Aberdeen Bazaar.";
+  } else if (slug === "double-bedroom-non-ac") {
+    title = "Non-AC Double Room in Port Blair | Hotel Sunrise Andaman";
+    description = "Stay in our budget-friendly Non-AC double room in Port Blair. Ideal for couples and travellers seeking clean, comfortable lodging at affordable rates.";
+  } else if (slug === "family-room-ac") {
+    title = "Family Room in Port Blair | Family Accommodation | Hotel Sunrise";
+    description = "Spacious AC family room in Port Blair. Hotel Sunrise provides clean, comfortable family accommodation for up to 4 adults near Aberdeen Bazaar.";
   }
 
   const canonicalUrl = `https://www.hotelsunriseandaman.com/rooms/${room.slug}`;
 
   return {
-    title: `${room.name} | Hotel Sunrise Sri Vijaya Puram`,
-    description: room.description,
+    title: title,
+    description: description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${room.name} | Hotel Sunrise Sri Vijaya Puram`,
-      description: room.description,
+      title: title,
+      description: description,
       url: canonicalUrl,
       images: [
         {
@@ -63,8 +77,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${room.name} | Hotel Sunrise Sri Vijaya Puram`,
-      description: room.description,
+      title: title,
+      description: description,
       images: [room.image],
     },
   };

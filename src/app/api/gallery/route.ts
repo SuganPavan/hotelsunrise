@@ -3,14 +3,16 @@ import fs from 'fs';
 import path from 'path';
 import galleryData from '@/data/gallery.json';
 
+let cachedGalleryData: any = null;
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'src/data/gallery.json');
-    if (fs.existsSync(filePath)) {
+    if (!cachedGalleryData) {
+      const filePath = path.join(process.cwd(), 'src/data/gallery.json');
       const fileData = fs.readFileSync(filePath, 'utf-8');
-      return NextResponse.json(JSON.parse(fileData));
+      cachedGalleryData = JSON.parse(fileData);
     }
-    return NextResponse.json(galleryData);
+    return NextResponse.json(cachedGalleryData);
   } catch (error: any) {
     return NextResponse.json(galleryData);
   }
@@ -30,6 +32,9 @@ export async function POST(request: Request) {
     
     // Write new gallery data
     fs.writeFileSync(filePath, JSON.stringify(body, null, 2), 'utf-8');
+    
+    // Update in-memory cache
+    cachedGalleryData = body;
     
     return NextResponse.json({ success: true, message: 'Gallery updated successfully' });
   } catch (error: any) {

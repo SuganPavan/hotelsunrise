@@ -2,17 +2,28 @@ import { Metadata } from "next";
 import HomePage from "./HomeClient";
 
 export const metadata: Metadata = {
-  title: "Hotel Sunrise | Central Hotel in Sri Vijaya Puram, Andaman",
+  title: "Hotel Sunrise Port Blair | Hotel in Sri Vijaya Puram, Andaman",
   description:
-    "Experience a warm, comfortable stay at Hotel Sunrise in Sri Vijaya Puram (Port Blair), Andaman. Located centrally at Babu Lane, Aberdeen Bazaar, close to ferry terminals and top attractions.",
+    "Book your stay at Hotel Sunrise Port Blair, a comfortable family hotel in Sri Vijaya Puram near Aberdeen Bazaar, with clean rooms for your Andaman trip.",
+  keywords: [
+    "Hotel Sunrise Port Blair",
+    "Hotel Sunrise Andaman",
+    "Hotel in Port Blair",
+    "Hotel in Sri Vijaya Puram",
+    "Hotel near Aberdeen Bazaar",
+    "Hotels in Port Blair",
+    "Affordable hotel in Port Blair",
+    "Family hotel in Port Blair",
+    "sri vijaya puram hotel"
+  ],
   alternates: {
-    canonical: "https://www.hotelsunriseandaman.com",
+    canonical: "https://www.hotelsunriseandaman.com/",
   },
   openGraph: {
-    title: "Hotel Sunrise | Central Hotel in Sri Vijaya Puram, Andaman",
+    title: "Hotel Sunrise Port Blair | Hotel in Sri Vijaya Puram, Andaman",
     description:
-      "Experience a warm, comfortable stay at Hotel Sunrise in Sri Vijaya Puram (Port Blair), Andaman. Located centrally at Babu Lane, Aberdeen Bazaar, close to ferry terminals and top attractions.",
-    url: "https://www.hotelsunriseandaman.com",
+      "Book your stay at Hotel Sunrise Port Blair, a comfortable family hotel in Sri Vijaya Puram near Aberdeen Bazaar, with clean rooms for your Andaman trip.",
+    url: "https://www.hotelsunriseandaman.com/",
     type: "website",
   },
 };

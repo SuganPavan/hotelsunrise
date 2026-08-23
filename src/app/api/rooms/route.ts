@@ -3,14 +3,16 @@ import fs from 'fs';
 import path from 'path';
 import roomsData from '@/data/rooms.json';
 
+let cachedRoomsData: any = null;
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'src/data/rooms.json');
-    if (fs.existsSync(filePath)) {
+    if (!cachedRoomsData) {
+      const filePath = path.join(process.cwd(), 'src/data/rooms.json');
       const fileData = fs.readFileSync(filePath, 'utf-8');
-      return NextResponse.json(JSON.parse(fileData));
+      cachedRoomsData = JSON.parse(fileData);
     }
-    return NextResponse.json(roomsData);
+    return NextResponse.json(cachedRoomsData);
   } catch (error: any) {
     return NextResponse.json(roomsData);
   }
@@ -30,6 +32,9 @@ export async function POST(request: Request) {
     
     // Write new rooms data
     fs.writeFileSync(filePath, JSON.stringify(body, null, 2), 'utf-8');
+    
+    // Update in-memory cache
+    cachedRoomsData = body;
     
     return NextResponse.json({ success: true, message: 'Room rates updated successfully' });
   } catch (error: any) {

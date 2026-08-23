@@ -60,6 +60,7 @@ export default function Footer() {
               { name: "Wildlife Attractions", href: "/wildlife" },
               { name: "Curated Packages", href: "/packages" },
               { name: "Gallery", href: "/gallery" },
+              { name: "Contact Us", href: "/contact" },
             ].map((link) => (
               <li key={link.name}>
                 <a

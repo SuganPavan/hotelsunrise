@@ -651,7 +651,7 @@ export default function ExperienceDetailClient({ attraction }: Props) {
             Stay at Hotel Sunrise &bull; Experience Sri Vijaya Puram
           </h2>
           <p className="font-sans text-pearl/70 text-sm md:text-base leading-relaxed font-light max-w-xl mx-auto">
-            Allow our dedicated concierge hosts to arrange private yacht cruises, timing approvals, fast-track permits, and premium transfers for your visit to {attraction.name} with our custom <Link href="/packages" className="text-accent underline font-normal hover:text-accent-hover transition-colors">Andaman Travel Packages</Link>.
+            Allow our dedicated concierge hosts to arrange private yacht cruises, timing approvals, fast-track permits, and premium transfers for your visit to {attraction.name} with our custom <Link href="/packages" className="text-accent underline font-normal hover:text-accent-hover transition-colors">Andaman tour packages</Link>.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">

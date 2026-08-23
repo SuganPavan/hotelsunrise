@@ -2,16 +2,16 @@ import { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Hotel Sunrise Sri Vijaya Puram Andaman",
+  title: "Hotel Sunrise Port Blair Contact & Booking Enquiries",
   description:
-    "Get in touch with the reservations team at Hotel Sunrise in Sri Vijaya Puram (Port Blair), Andaman. Submit a secure booking inquiry, view our location map, and contact our concierge.",
+    "Contact Hotel Sunrise Port Blair for direct room bookings, holiday inquiries, and travel planning. Get in touch with our local Andaman reception desk.",
   alternates: {
     canonical: "https://www.hotelsunriseandaman.com/contact",
   },
   openGraph: {
-    title: "Contact Us | Hotel Sunrise Sri Vijaya Puram Andaman",
+    title: "Hotel Sunrise Port Blair Contact & Booking Enquiries",
     description:
-      "Get in touch with the reservations team at Hotel Sunrise in Sri Vijaya Puram (Port Blair), Andaman. Submit a secure booking inquiry, view our location map, and contact our concierge.",
+      "Contact Hotel Sunrise Port Blair for direct room bookings, holiday inquiries, and travel planning. Get in touch with our local Andaman reception desk.",
     url: "https://www.hotelsunriseandaman.com/contact",
     type: "website",
   },

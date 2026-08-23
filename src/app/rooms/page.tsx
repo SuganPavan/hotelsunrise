@@ -2,16 +2,16 @@ import { Metadata } from "next";
 import RoomsClient from "./RoomsClient";
 
 export const metadata: Metadata = {
-  title: "Comfortable Hotel Rooms & Rates | Hotel Sunrise Sri Vijaya Puram",
+  title: "Hotel Rooms in Port Blair | Hotel Sunrise Rooms & Rates",
   description:
-    "Explore our range of clean and budget-friendly accommodations at Hotel Sunrise, Sri Vijaya Puram. Check amenities and competitive rates for Double Non-AC, Double AC, and Family rooms.",
+    "Explore our hotel rooms in Port Blair. Hotel Sunrise offers clean, budget-friendly Double AC, Double Non-AC, and Family rooms near Aberdeen Bazaar.",
   alternates: {
     canonical: "https://www.hotelsunriseandaman.com/rooms",
   },
   openGraph: {
-    title: "Comfortable Hotel Rooms & Rates | Hotel Sunrise Sri Vijaya Puram",
+    title: "Hotel Rooms in Port Blair | Hotel Sunrise Rooms & Rates",
     description:
-      "Explore our range of clean and budget-friendly accommodations at Hotel Sunrise, Sri Vijaya Puram. Check amenities and competitive rates for Double Non-AC, Double AC, and Family rooms.",
+      "Explore our hotel rooms in Port Blair. Hotel Sunrise offers clean, budget-friendly Double AC, Double Non-AC, and Family rooms near Aberdeen Bazaar.",
     url: "https://www.hotelsunriseandaman.com/rooms",
     type: "website",
   },

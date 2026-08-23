@@ -69,13 +69,13 @@ export default function AboutClient() {
                   Whether you're visiting for a family vacation, honeymoon, business trip, or island adventure, our central location places you within minutes of the city's major attractions, ferry terminals, shopping areas, restaurants, and government offices.
                 </p>
                 <p>
-                  Relax in well-appointed rooms, enjoy warm hospitality, and begin every day with easy access to the best experiences Andaman has to offer.
+                  Relax in our comfortable <Link href="/rooms" className="text-accent underline font-normal hover:text-accent-hover transition-colors">hotel rooms in Port Blair</Link>, enjoy warm hospitality, and begin every day with easy access to the best experiences Andaman has to offer.
                 </p>
                 <p>
                   From the historic Cellular Jail and beautiful Corbyn's Cove Beach to ferry connections for Ross Island, North Bay, Swaraj Dweep (Havelock), and Shaheed Dweep (Neil), everything is within easy reach.
                 </p>
                 <p>
-                  Our commitment is simple: clean accommodations, friendly service, excellent value, and a memorable stay in the Andaman Islands.
+                  Our commitment is simple: clean accommodations, friendly service, excellent value, and custom <Link href="/packages" className="text-accent underline font-normal hover:text-accent-hover transition-colors">Andaman tour packages</Link> for a memorable stay in the Andaman Islands.
                 </p>
               </div>
             </div>

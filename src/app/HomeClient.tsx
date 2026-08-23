@@ -286,8 +286,8 @@ export default function HomePage() {
     };
   }, []);
 
-  const activeCardPath = isMobile ? mobileCardPath : desktopCardPath;
-  const activeCardPath100 = isMobile ? mobileCardPath100 : desktopCardPath100;
+  const activeCardPath = (isMobile ? mobileCardPath : desktopCardPath) || desktopCardPath;
+  const activeCardPath100 = (isMobile ? mobileCardPath100 : desktopCardPath100) || desktopCardPath100;
 
   // Gallery Filter State
 
@@ -352,6 +352,8 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "Hotel",
             "name": "Hotel Sunrise",
+            "url": "https://www.hotelsunriseandaman.com/",
+            "logo": "https://www.hotelsunriseandaman.com/logo.jpg",
             "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2000&q=90",
             "description": "Experience a comfortable and convenient stay at Hotel Sunrise, located at Hotel Sunrise, Babu Lane, Aberdeen Bazaar, Sri Vijayapuram, South Andaman, Andaman & Nicobar Islands-744104. Close to ferry terminals and major tourist attractions.",
             "address": {
@@ -363,10 +365,6 @@ export default function HomePage() {
               "addressCountry": "IN"
             },
             "telephone": "+91 97324 70317",
-            "starRating": {
-              "@type": "Rating",
-              "ratingValue": "4"
-            },
             "priceRange": "₹3,500 - ₹6,500"
           })
         }}
@@ -425,24 +423,33 @@ export default function HomePage() {
             }}
           />
 
-          {/* Gold Wave border outline morphing path overlay */}
           {!isMobile && (
             <svg 
               viewBox="0 0 100 100" 
               preserveAspectRatio="none"
-              className="absolute inset-0 w-full h-full pointer-events-none z-20 text-accent/35"
+              className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-20 text-accent/35"
             >
-              <motion.path 
-                d={isTransitioned ? fullPath100 : activeCardPath100}
-                animate={{ 
-                  d: isTransitioned ? fullPath100 : activeCardPath100,
-                  opacity: isTransitioned ? 0 : 1 
-                }}
-                transition={{ duration: 2.5, ease: [0.25, 1, 0.5, 1] }}
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="0.6" 
-              />
+              {isMounted ? (
+                <motion.path 
+                  d={isTransitioned ? fullPath100 : activeCardPath100}
+                  initial={false}
+                  animate={{ 
+                    d: isTransitioned ? fullPath100 : activeCardPath100,
+                    opacity: isTransitioned ? 0 : 1 
+                  }}
+                  transition={{ duration: 2.5, ease: [0.25, 1, 0.5, 1] }}
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="0.6" 
+                />
+              ) : (
+                <path 
+                  d={desktopCardPath100}
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="0.6" 
+                />
+              )}
             </svg>
           )}
           
@@ -453,6 +460,8 @@ export default function HomePage() {
             muted
             playsInline
             preload="none"
+            aria-hidden="true"
+            tabIndex={-1}
             onPlaying={() => setIsVideoPlaying(true)}
             className="w-full h-full object-cover brightness-125 lg:brightness-100"
             style={isMounted ? { 
@@ -467,10 +476,10 @@ export default function HomePage() {
             } : undefined}
           >
             {loadVideo && (
-              <>
-                <source src={getOptimizedVideoUrl("/hero-web.mp4")} type="video/mp4" />
-                <source src="/hero-web.mp4" type="video/mp4" />
-              </>
+              <source 
+                src={isMobile ? "/video/hero-mobile.mp4" : "/video/hero-web.mp4"} 
+                type="video/mp4" 
+              />
             )}
           </video>
 
@@ -523,8 +532,10 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
               className="font-serif text-[26px] sm:text-[31px] md:text-[35px] lg:text-[40px] leading-[1.15] font-semibold tracking-wide text-pearl max-w-2xl lg:max-w-[380px]"
             >
-              Comfortable Stay <br />
-              <span className="text-accent italic font-medium">in Sri Vijaya Puram</span>
+              Hotel Sunrise <br />
+              <span className="text-accent italic font-medium text-lg md:text-xl block tracking-wider mt-2 font-serif normal-case">
+                Your Comfortable Stay in Port Blair, Andaman
+              </span>
             </motion.h1>
 
             {/* Description */}
@@ -534,7 +545,7 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
               className="font-sans text-[14px] md:text-[15px] text-pearl/80 font-light leading-[1.6] max-w-2xl lg:max-w-[360px]"
             >
-              Explore Andaman's history, islands, and natural beauty from a convenient stay in the heart of Sri Vijaya Puram
+              Explore Andaman's history, islands, and natural beauty from a convenient stay in Sri Vijaya Puram (Port Blair), close to key transport and attractions.
             </motion.p>
 
             {/* Booking CTA Buttons */}
@@ -569,10 +580,10 @@ export default function HomePage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="font-serif text-[26px] sm:text-[31px] md:text-[35px] lg:text-[40px] leading-[1.15] font-semibold tracking-wide text-pearl max-w-2xl lg:max-w-[380px]">
+            <h2 className="font-serif text-[26px] sm:text-[31px] md:text-[35px] lg:text-[40px] leading-[1.15] font-semibold tracking-wide text-pearl max-w-2xl lg:max-w-[380px]">
               Stay Comfortably. <br />
               <span className="text-accent italic font-medium">Explore Andaman.</span>
-            </h1>
+            </h2>
 
             {/* Description */}
             <p className="font-sans text-[14px] md:text-[15px] text-pearl/90 font-light leading-[1.6] max-w-2xl lg:max-w-[360px]">
@@ -869,11 +880,16 @@ export default function HomePage() {
         <svg className="absolute w-0 h-0" aria-hidden="true">
           <defs>
             <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
-              <motion.path 
-                d={isTransitioned ? fullPath : activeCardPath}
-                animate={{ d: isTransitioned ? fullPath : activeCardPath }}
-                transition={{ duration: 2.5, ease: [0.25, 1, 0.5, 1] }}
-              />
+              {isMounted ? (
+                <motion.path 
+                  d={isTransitioned ? fullPath : activeCardPath}
+                  initial={false}
+                  animate={{ d: isTransitioned ? fullPath : activeCardPath }}
+                  transition={{ duration: 2.5, ease: [0.25, 1, 0.5, 1] }}
+                />
+              ) : (
+                <path d={desktopCardPath} />
+              )}
             </clipPath>
             <clipPath id="wave-clip-mobile-static" clipPathUnits="objectBoundingBox">
               <path d="M 0.5,0.48 L 0.82,0.48 C 0.88,0.48 0.92,0.55 0.92,0.67 C 0.92,0.79 0.88,0.86 0.82,0.86 L 0.18,0.86 C 0.12,0.86 0.08,0.79 0.08,0.67 C 0.08,0.55 0.12,0.48 0.18,0.48 Z" />
@@ -914,6 +930,8 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"
             alt="Stunning tropical shoreline beach background"
             fill
+            sizes="100vw"
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -926,12 +944,12 @@ export default function HomePage() {
               Your Gateway to Andaman
             </span>
             <h2 className="font-serif text-3xl md:text-5xl text-[#081628] leading-tight font-medium tracking-wide">
-              Welcome to Hotel Sunrise
+              Welcome to Hotel Sunrise Port Blair
             </h2>
           </div>
           
           <p className="text-[#2b2b2b]/80 font-sans text-sm md:text-lg leading-relaxed font-light max-w-2xl mx-auto">
-            Located in the heart of Sri Vijaya Puram (Port Blair), Babu Lane, Aberdeen Bazaar, Hotel Sunrise offers clean, air-conditioned accommodations with easy transit access to airport gates, ferry terminals, beaches, and historic memorials.
+            Located at Babu Lane, Aberdeen Bazaar in the heart of Sri Vijaya Puram (Port Blair), Hotel Sunrise offers clean, air-conditioned accommodations with easy transit access to Veer Savarkar International Airport and Phoenix Bay Jetty. Our city hotel provides comfortable double and family rooms, making it the perfect choice for families, couples, and travellers exploring the Andaman Islands.
           </p>
 
           <div className="pt-4">
@@ -974,6 +992,8 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=2000&q=80"
             alt="Luxury hotel bedroom suite background"
             fill
+            sizes="100vw"
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -1031,6 +1051,8 @@ export default function HomePage() {
                       src={room.image} 
                       alt={room.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 rounded-t-[24px]" 
                     />
                     <div className="absolute top-4 right-4 bg-[#081628]/90 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-[8px]">
@@ -1098,7 +1120,7 @@ export default function HomePage() {
               href="/rooms"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-accent hover:bg-accent-hover text-[#081628] font-sans text-xs tracking-widest uppercase font-semibold transition-all duration-300 rounded-sm"
             >
-              Explore All Rooms & Suites <ArrowRight size={14} />
+              Explore our hotel rooms in Port Blair <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -1133,6 +1155,8 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=80"
             alt="Tropical rippled sea water background"
             fill
+            sizes="100vw"
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -1175,6 +1199,8 @@ export default function HomePage() {
                       alt={exp.name} 
                       fill 
                       unoptimized
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                      loading="lazy"
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
@@ -1226,7 +1252,7 @@ export default function HomePage() {
               href="/experiences"
               className="inline-flex items-center gap-2 px-8 py-3.5 border border-primary text-primary hover:bg-primary hover:text-pearl font-sans text-xs tracking-widest uppercase font-semibold transition-all duration-500 rounded-[8px]"
             >
-              Explore All Experiences <Compass size={14} />
+              Things to Do in Port Blair <Compass size={14} />
             </Link>
           </div>
         </div>
@@ -1457,6 +1483,8 @@ export default function HomePage() {
                       src={pkg.image} 
                       alt={pkg.title} 
                       fill 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 rounded-t-[24px]"
                     />
                     <div className="absolute inset-0 bg-black/10" />
@@ -1510,7 +1538,7 @@ export default function HomePage() {
               href="/packages"
               className="inline-flex items-center gap-2 px-8 py-3.5 border border-primary text-primary hover:bg-primary hover:text-white font-sans text-xs tracking-widest uppercase font-semibold transition-all duration-500 rounded-[8px]"
             >
-              View All Packages <Award size={14} />
+              Andaman Tour Packages <Award size={14} />
             </Link>
           </div>
         </div>

@@ -2,16 +2,16 @@ import { Metadata } from "next";
 import ExperiencesClient from "./ExperiencesClient";
 
 export const metadata: Metadata = {
-  title: "Andaman Local Sightseeing & Activities | Hotel Sunrise",
+  title: "Things to Do in Port Blair | Port Blair Sightseeing & Attractions",
   description:
-    "Plan your local Andaman excursions and sightseeing activities. Explore historic landmarks, island ruins, diving reefs, and nature parks from our centrally located hotel.",
+    "Plan your trip with the top things to do in Port Blair. Discover historic sightseeing landmarks, island attractions, and day tours near Hotel Sunrise.",
   alternates: {
     canonical: "https://www.hotelsunriseandaman.com/experiences",
   },
   openGraph: {
-    title: "Andaman Local Sightseeing & Activities | Hotel Sunrise",
+    title: "Things to Do in Port Blair | Port Blair Sightseeing & Attractions",
     description:
-      "Plan your local Andaman excursions and sightseeing activities. Explore historic landmarks, island ruins, diving reefs, and nature parks from our centrally located hotel.",
+      "Plan your trip with the top things to do in Port Blair. Discover historic sightseeing landmarks, island attractions, and day tours near Hotel Sunrise.",
     url: "https://www.hotelsunriseandaman.com/experiences",
     type: "website",
   },

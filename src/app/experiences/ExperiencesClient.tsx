@@ -244,7 +244,7 @@ export default function ExperiencesClient() {
             Stay Centrally. Discover Sri Vijaya Puram.
           </h2>
           <p className="max-w-xl mx-auto font-sans text-pearl/70 text-xs md:text-base leading-relaxed font-light">
-            Need help with roll-on roll-off vehicle ferries, restricted area permits, custom hiking guides, or timing schedules? Our 24/7 concierge desk is here to coordinate.
+            Need help with ferries, restricted area permits, hiking guides, or schedules? Our concierge desk is here to coordinate, or you can book our custom <Link href="/packages" className="text-accent underline font-normal hover:text-accent-hover transition-colors">Andaman tour packages</Link> directly.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
             <a
