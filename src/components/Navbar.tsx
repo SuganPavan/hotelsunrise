@@ -71,10 +71,10 @@ export default function Navbar({ isHeroTransitioned = false }: NavbarProps) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg md:text-xl tracking-[0.2em] text-pearl font-semibold uppercase">
+              <span className="font-serif text-lg md:text-xl tracking-[0.2em] text-pearl font-medium uppercase">
                 Hotel Sunrise
               </span>
-              <span className="text-[7px] md:text-[8px] tracking-[0.3em] text-accent uppercase font-sans font-semibold mt-0.5">
+              <span className="text-[7px] md:text-[8px] tracking-[0.3em] text-accent uppercase font-sans font-medium mt-0.5">
                 Sri Vijaya Puram
               </span>
             </div>
@@ -98,7 +98,7 @@ export default function Navbar({ isHeroTransitioned = false }: NavbarProps) {
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 py-2.5 border border-accent/50 text-accent hover:bg-accent hover:text-primary transition-all duration-500 text-xs font-sans tracking-widest uppercase font-semibold animate-pulse"
+              className="inline-flex items-center justify-center px-6 py-2.5 border border-accent/50 text-accent hover:bg-accent hover:text-primary transition-all duration-500 text-xs font-sans tracking-widest uppercase font-medium animate-pulse"
             >
               Book Now
             </Link>
@@ -154,11 +154,11 @@ export default function Navbar({ isHeroTransitioned = false }: NavbarProps) {
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="w-full text-center py-4 bg-accent hover:bg-accent-hover text-primary font-sans tracking-widest uppercase font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full text-center py-4 bg-accent hover:bg-accent-hover text-primary font-sans tracking-widest uppercase font-medium transition-all duration-300 flex items-center justify-center gap-2"
               >
                 Book Your Stay <ArrowRight size={16} />
               </Link>
-              <div className="text-center text-pearl/50 text-xs font-sans tracking-wider">
+              <div className="text-center text-pearl/60 text-xs font-sans font-normal tracking-wider">
                 Reservations: +91 97324 70317 | Sri Vijaya Puram, Andaman
               </div>
             </motion.div>

@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import HomePage from "./HomeClient";
 
 export const metadata: Metadata = {
-  title: "Hotel Sunrise Port Blair | Hotel in Sri Vijaya Puram, Andaman",
+  title: "Hotel in Port Blair | Budget Hotel in Sri Vijaya Puram | Hotel Sunrise",
   description:
-    "Book your stay at Hotel Sunrise Port Blair, a comfortable family hotel in Sri Vijaya Puram near Aberdeen Bazaar, with clean rooms for your Andaman trip.",
+    "Hotel Sunrise is a comfortable budget hotel in Port Blair, Sri Vijaya Puram, near Aberdeen Bazaar, offering convenient accommodation for Andaman travellers.",
   keywords: [
     "Hotel Sunrise Port Blair",
     "Hotel Sunrise Andaman",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     canonical: "https://www.hotelsunriseandaman.com/",
   },
   openGraph: {
-    title: "Hotel Sunrise Port Blair | Hotel in Sri Vijaya Puram, Andaman",
+    title: "Hotel in Port Blair | Budget Hotel in Sri Vijaya Puram | Hotel Sunrise",
     description:
-      "Book your stay at Hotel Sunrise Port Blair, a comfortable family hotel in Sri Vijaya Puram near Aberdeen Bazaar, with clean rooms for your Andaman trip.",
+      "Hotel Sunrise is a comfortable budget hotel in Port Blair, Sri Vijaya Puram, near Aberdeen Bazaar, offering convenient accommodation for Andaman travellers.",
     url: "https://www.hotelsunriseandaman.com/",
     type: "website",
   },

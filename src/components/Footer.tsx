@@ -18,15 +18,15 @@ export default function Footer() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-2xl tracking-[0.1em] text-pearl font-semibold uppercase">
+              <span className="font-serif text-2xl tracking-[0.1em] text-pearl font-medium uppercase">
                 Hotel Sunrise
               </span>
-              <span className="text-[9px] tracking-[0.25em] text-accent uppercase font-sans font-semibold mt-1">
+              <span className="text-[9px] tracking-[0.25em] text-accent uppercase font-sans font-medium mt-1">
                 Sri Vijaya Puram
               </span>
             </div>
           </a>
-          <p className="text-pearl/60 text-sm leading-relaxed font-sans font-light">
+          <p className="text-pearl/70 text-sm leading-relaxed font-sans font-normal">
             A comfortable and convenient base located in the vibrant heart of Aberdeen Bazar, Sri Vijaya Puram, perfect for family vacations, honeymoons, and business trips.
           </p>
           <div className="flex space-x-4 pt-2">
@@ -65,7 +65,7 @@ export default function Footer() {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-pearl/70 hover:text-accent transition-colors duration-300 text-sm font-sans font-light"
+                  className="text-pearl/70 hover:text-accent transition-colors duration-300 text-sm font-sans font-normal"
                 >
                   {link.name}
                 </a>
@@ -80,17 +80,17 @@ export default function Footer() {
             Reservations
           </h4>
           <ul className="space-y-4">
-            <li className="flex items-start space-x-3 text-pearl/70 text-sm font-sans font-light">
+            <li className="flex items-start space-x-3 text-pearl/70 text-sm font-sans font-normal">
               <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
               <span>Hotel Sunrise, Babu Lane, Aberdeen Bazaar, Sri Vijayapuram, South Andaman, Andaman & Nicobar Islands - 744104</span>
             </li>
-            <li className="flex items-center space-x-3 text-pearl/70 text-sm font-sans font-light">
+            <li className="flex items-center space-x-3 text-pearl/70 text-sm font-sans font-normal">
               <Phone size={18} className="text-accent shrink-0" />
               <a href="tel:+919732470317" className="hover:text-accent transition-colors duration-300">
                 +91 97324 70317
               </a>
             </li>
-            <li className="flex items-center space-x-3 text-pearl/70 text-sm font-sans font-light">
+            <li className="flex items-center space-x-3 text-pearl/70 text-sm font-sans font-normal">
               <Mail size={18} className="text-accent shrink-0" />
               <a 
                 href="mailto:hotelsunrisesrivijayapuram@gmail.com" 
@@ -115,7 +115,7 @@ export default function Footer() {
           <h4 className="text-sm font-sans font-semibold tracking-[0.2em] uppercase text-accent">
             Our Guest Promise
           </h4>
-          <p className="text-pearl/60 text-xs leading-relaxed font-sans font-light">
+          <p className="text-pearl/70 text-xs leading-relaxed font-sans font-normal">
             We are dedicated to providing clean, well-appointed accommodations, warm local hospitality, and assistance in arranging ferry tickets and sightseeing tours to make your Andaman exploration memorable and hassle-free.
           </p>
           <div className="border border-accent/20 bg-accent/5 p-4 rounded text-center">
@@ -128,7 +128,7 @@ export default function Footer() {
 
       {/* Bottom Section */}
       <div className="border-t border-pearl/10 bg-primary-dark">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 flex flex-col md:flex-row justify-between items-center text-pearl/40 text-xs font-sans font-light space-y-4 md:space-y-0">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 flex flex-col md:flex-row justify-between items-center text-pearl/55 text-xs font-sans font-normal space-y-4 md:space-y-0">
           <div>
             &copy; {new Date().getFullYear()} Hotel Sunrise Sri Vijaya Puram. All rights reserved.
           </div>

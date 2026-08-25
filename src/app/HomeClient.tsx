@@ -11,6 +11,7 @@ import {
   ArrowRight, 
   ChevronLeft, 
   ChevronRight, 
+  ChevronDown,
   Compass, 
   Trees, 
   Camera,
@@ -296,6 +297,7 @@ export default function HomePage() {
 
   // Reviews Slider State
   const [currentReview, setCurrentReview] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -511,8 +513,8 @@ export default function HomePage() {
         {/* Content Wrapper (Positions content absolute on top of video container) */}
         <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full pt-12 pb-4 md:py-20 lg:py-28 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 pointer-events-none">
           
-          {/* LEFT COLUMN: WEBSITE CONTENT (30% width split - fades away on morph transition) */}
-          <div className={`w-full lg:w-[30%] text-left max-w-2xl lg:max-w-[400px] flex flex-col justify-center space-y-4 md:space-y-8 transition-all duration-[1500ms] ease-out pointer-events-auto ${isTransitioned ? 'opacity-0 translate-x-[-30px] -translate-y-10 pointer-events-none' : 'opacity-100 translate-x-0 -translate-y-10'}`}>
+          {/* LEFT COLUMN: WEBSITE CONTENT (42% width split - fades away on morph transition) */}
+          <div className={`w-full lg:w-[42%] text-left max-w-2xl lg:max-w-[550px] flex flex-col justify-center space-y-4 md:space-y-8 transition-all duration-[1500ms] ease-out pointer-events-auto ${isTransitioned ? 'opacity-0 translate-x-[-30px] -translate-y-10 pointer-events-none' : 'opacity-100 translate-x-0 -translate-y-10'}`}>
             {/* Hotel Brand Badge */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
@@ -530,12 +532,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-              className="font-serif text-[26px] sm:text-[31px] md:text-[35px] lg:text-[40px] leading-[1.15] font-semibold tracking-wide text-pearl max-w-2xl lg:max-w-[380px]"
+              className="font-serif text-[30px] sm:text-[34px] md:text-[40px] lg:text-[48px] leading-[1.2] font-medium tracking-wide text-pearl max-w-2xl lg:max-w-[500px]"
             >
-              Hotel Sunrise <br />
-              <span className="text-accent italic font-medium text-lg md:text-xl block tracking-wider mt-2 font-serif normal-case">
-                Your Comfortable Stay in Port Blair, Andaman
-              </span>
+              Hotel Sunrise <span className="text-accent italic font-medium text-lg sm:text-xl md:text-[22px] block tracking-wide mt-2 font-serif normal-case">Hotel in Port Blair, Andaman</span>
             </motion.h1>
 
             {/* Description */}
@@ -543,9 +542,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-              className="font-sans text-[14px] md:text-[15px] text-pearl/80 font-light leading-[1.6] max-w-2xl lg:max-w-[360px]"
+              className="font-sans text-sm md:text-[15px] text-pearl/80 font-normal leading-[1.6] max-w-2xl lg:max-w-[460px]"
             >
-              Explore Andaman's history, islands, and natural beauty from a convenient stay in Sri Vijaya Puram (Port Blair), close to key transport and attractions.
+              Hotel Sunrise is a comfortable and affordable hotel in Sri Vijaya Puram (Port Blair), located near Aberdeen Bazaar. Our hotel offers convenient accommodation for families, couples and travellers exploring the Andaman Islands.
             </motion.p>
 
             {/* Booking CTA Buttons */}
@@ -571,7 +570,7 @@ export default function HomePage() {
           </div>
 
           {/* STAGE 2 LEFT COLUMN: WEBSITE CONTENT (Fades in when video transitions to full screen) */}
-          <div className={`absolute left-6 top-24 md:top-auto right-6 lg:right-auto md:left-12 lg:left-16 w-auto lg:w-[30%] text-left max-w-2xl lg:max-w-[400px] flex flex-col justify-center space-y-4 md:space-y-8 transition-all duration-[1500ms] ease-out pointer-events-auto ${showFinalContent ? 'opacity-100 translate-x-0 -translate-y-10' : 'opacity-0 translate-x-[30px] -translate-y-10 pointer-events-none'}`}>
+          <div className={`absolute left-6 top-24 md:top-auto right-6 lg:right-auto md:left-12 lg:left-16 w-auto lg:w-[42%] text-left max-w-2xl lg:max-w-[550px] flex flex-col justify-center space-y-4 md:space-y-8 transition-all duration-[1500ms] ease-out pointer-events-auto ${showFinalContent ? 'opacity-100 translate-x-0 -translate-y-10' : 'opacity-0 translate-x-[30px] -translate-y-10 pointer-events-none'}`}>
             {/* Hotel Brand Badge */}
             <div className="inline-flex items-center gap-2">
               <span className="text-[10px] md:text-[11px] font-sans tracking-[0.35em] text-accent brightness-125 uppercase font-extrabold">
@@ -580,13 +579,13 @@ export default function HomePage() {
             </div>
 
             {/* Main Heading */}
-            <h2 className="font-serif text-[26px] sm:text-[31px] md:text-[35px] lg:text-[40px] leading-[1.15] font-semibold tracking-wide text-pearl max-w-2xl lg:max-w-[380px]">
+            <h2 className="font-serif text-[30px] sm:text-[34px] md:text-[40px] lg:text-[48px] leading-[1.2] font-medium tracking-wide text-pearl max-w-2xl lg:max-w-[500px]">
               Stay Comfortably. <br />
               <span className="text-accent italic font-medium">Explore Andaman.</span>
             </h2>
 
             {/* Description */}
-            <p className="font-sans text-[14px] md:text-[15px] text-pearl/90 font-light leading-[1.6] max-w-2xl lg:max-w-[360px]">
+            <p className="font-sans text-sm md:text-[15px] text-pearl/90 font-normal leading-[1.6] max-w-2xl lg:max-w-[460px]">
               A welcoming hotel in Sri Vijaya Puram offering comfort, convenience, and easy access to the islands.
             </p>
 
@@ -608,7 +607,7 @@ export default function HomePage() {
           </div>
 
           {/* RIGHT COLUMN: Renders 8 Floating Location Cards around the video card bounds */}
-          <div className="hidden lg:flex w-full lg:w-[70%] pointer-events-none relative h-[290px] sm:h-[340px] md:h-[380px] lg:h-[600px] items-center justify-center">
+          <div className="hidden lg:flex w-full lg:w-[58%] pointer-events-none relative h-[290px] sm:h-[340px] md:h-[380px] lg:h-[600px] items-center justify-center">
             {/* Floating Location Card 1: Cellular Jail */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
@@ -938,26 +937,69 @@ export default function HomePage() {
         {/* Smooth gradient blends to keep the section boundaries soft */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#fbfaf7] via-transparent to-[#fbfaf7] z-0 pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-12">
           <div className="space-y-4">
             <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold block">
               Your Gateway to Andaman
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl text-[#081628] leading-tight font-medium tracking-wide">
+            <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
               Welcome to Hotel Sunrise Port Blair
             </h2>
           </div>
-          
-          <p className="text-[#2b2b2b]/80 font-sans text-sm md:text-lg leading-relaxed font-light max-w-2xl mx-auto">
-            Located at Babu Lane, Aberdeen Bazaar in the heart of Sri Vijaya Puram (Port Blair), Hotel Sunrise offers clean, air-conditioned accommodations with easy transit access to Veer Savarkar International Airport and Phoenix Bay Jetty. Our city hotel provides comfortable double and family rooms, making it the perfect choice for families, couples, and travellers exploring the Andaman Islands.
-          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+            {/* Card 1: Affordability */}
+            <div className="h-full bg-white/60 backdrop-blur-md border border-accent/20 rounded-[24px] p-8 shadow-sm hover:shadow-md hover:border-accent/40 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="text-[10px] font-sans tracking-[0.2em] text-accent-hover uppercase font-bold block">
+                  Budget Friendly
+                </span>
+                <h2 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] font-medium leading-snug">
+                  Affordable Accommodation in Port Blair
+                </h2>
+                <p className="text-[#2b2b2b]/85 font-sans text-sm md:text-[15px] font-normal leading-relaxed">
+                  As a clean and welcoming budget hotel in Port Blair, Hotel Sunrise is dedicated to providing high value for travellers. We offer comfortable, budget-friendly accommodation in Sri Vijaya Puram without compromising on quality or hospitality, making it the perfect affordable stay in Port Blair.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Aberdeen Bazaar */}
+            <div className="h-full bg-white/60 backdrop-blur-md border border-accent/20 rounded-[24px] p-8 shadow-sm hover:shadow-md hover:border-accent/40 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="text-[10px] font-sans tracking-[0.2em] text-accent-hover uppercase font-bold block">
+                  Prime Location
+                </span>
+                <h2 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] font-medium leading-snug">
+                  Hotel Near Aberdeen Bazaar, Port Blair
+                </h2>
+                <p className="text-[#2b2b2b]/85 font-sans text-sm md:text-[15px] font-normal leading-relaxed">
+                  Our city hotel is located at Babu Lane, Aberdeen Bazaar in the heart of Sri Vijaya Puram (Port Blair). Staying here places you in the vibrant market center, close to shopping, dining, transport links, and key island ferry hubs.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: Convenience */}
+            <div className="h-full bg-white/60 backdrop-blur-md border border-accent/20 rounded-[24px] p-8 shadow-sm hover:shadow-md hover:border-accent/40 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="text-[10px] font-sans tracking-[0.2em] text-accent-hover uppercase font-bold block">
+                  Transit Friendly
+                </span>
+                <h2 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] font-medium leading-snug">
+                  Convenient Location in Port Blair
+                </h2>
+                <p className="text-[#2b2b2b]/85 font-sans text-sm md:text-[15px] font-normal leading-relaxed">
+                  Enjoy a highly convenient location in Port Blair. We are situated near Phoenix Bay Jetty for easy island ferry boarding, historic Cellular Jail for sightseeing, and Veer Savarkar International Airport for smooth arrivals and departures.
+                </p>
+              </div>
+            </div>
+          </div>
 
           <div className="pt-4">
             <Link
               href="/about"
               className="inline-flex items-center justify-center px-8 py-3.5 bg-[#081628] hover:bg-[#081628]/90 text-white font-sans text-xs tracking-widest uppercase font-bold transition-all duration-300 rounded-[8px] shadow-md hover:-translate-y-0.5"
             >
-              Read Our Full Story
+              Read Our Story
             </Link>
           </div>
         </div>
@@ -1006,14 +1048,14 @@ export default function HomePage() {
               <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold">
                 Comfortable Accommodations
               </span>
-              <h2 className="font-serif text-3xl md:text-5xl text-[#081628] font-medium tracking-wide">
-                Rooms & Suites
+              <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
+                Hotel Rooms in Port Blair
               </h2>
+              </div>
+              <p className="max-w-md text-[#2b2b2b]/85 text-sm md:text-[15px] font-normal mt-4 md:mt-0 font-sans text-left leading-relaxed">
+                Browse our selection of comfortable rooms. We offer family rooms, budget-friendly options, and air-conditioned hotel rooms in Port Blair designed with modern amenities for a relaxing retreat in Sri Vijaya Puram.
+              </p>
             </div>
-            <p className="max-w-md text-charcoal/75 text-sm md:text-base font-light mt-4 md:mt-0 font-sans text-left">
-              Our rooms are thoughtfully designed with modern comforts, air conditioning, and convenient amenities to provide a relaxing and restful retreat in the heart of Sri Vijaya Puram.
-            </p>
-          </div>
 
           {/* Cards Grid */}
           <div 
@@ -1056,7 +1098,7 @@ export default function HomePage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700 rounded-t-[24px]" 
                     />
                     <div className="absolute top-4 right-4 bg-[#081628]/90 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-[8px]">
-                      <span className="text-accent text-xs font-semibold tracking-wider font-sans">{displayPrice} <span className="text-[10px] text-pearl/60 font-light">/ Night</span></span>
+                      <span className="text-accent text-xs font-semibold tracking-wider font-sans">{displayPrice} <span className="text-[10px] text-pearl/60 font-normal">/ Night</span></span>
                     </div>
                   </Link>
 
@@ -1064,19 +1106,19 @@ export default function HomePage() {
                   <div className="p-8 flex-1 flex flex-col justify-between space-y-6">
                     <div className="space-y-4 text-left">
                       <Link href={`/rooms/${room.slug}`}>
-                        <h3 className="font-serif text-xl md:text-2xl text-[#081628] font-semibold group-hover:text-accent transition-colors duration-300">
+                        <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] font-medium group-hover:text-accent transition-colors duration-300">
                           {room.name}
                         </h3>
                       </Link>
-                      <p className="text-charcoal/65 font-sans font-light text-xs leading-relaxed">
+                      <p className="text-[#2b2b2b]/75 font-sans font-normal text-[13px] md:text-[14px] leading-relaxed">
                         {room.description}
                       </p>
                     </div>
 
                     {/* Amenities */}
                     <div className="space-y-2 border-t border-accent/15 pt-4 text-left">
-                      <span className="text-[10px] text-accent uppercase tracking-widest font-semibold font-sans">Included Amenities:</span>
-                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-charcoal/75 font-sans font-light">
+                      <span className="text-[10px] text-accent uppercase tracking-widest font-medium font-sans">Included Amenities:</span>
+                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-[#2b2b2b]/75 font-sans font-normal">
                         {room.amenities.map(amenity => (
                           <span key={amenity} className="flex items-center gap-1">
                             <Check size={10} className="text-accent" /> {amenity}
@@ -1091,7 +1133,7 @@ export default function HomePage() {
                         href={`https://wa.me/919732470317?text=Hello%20Hotel%20Sunrise%20Reservations%2C%20I%20would%20like%20to%20enquire%20about%20booking%20the%20${encodeURIComponent(room.name)}.`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-grow text-center py-3 border border-accent/35 hover:border-accent bg-transparent hover:bg-accent text-[#081628] hover:text-white transition-all duration-500 font-sans tracking-widest text-[10px] uppercase font-semibold flex items-center justify-center gap-1.5 rounded-[8px]"
+                        className="flex-grow text-center py-3 border border-accent/35 hover:border-accent bg-transparent hover:bg-accent text-[#081628] hover:text-white transition-all duration-500 font-sans tracking-widest text-[11px] md:text-xs uppercase font-medium flex items-center justify-center gap-1.5 rounded-[8px]"
                       >
                         <MessageSquare size={12} /> WhatsApp
                       </a>
@@ -1103,7 +1145,7 @@ export default function HomePage() {
                             alert("Email address copied to clipboard: hotelsunrisesrivijayapuram@gmail.com");
                           } catch (err) {}
                         }}
-                        className="flex-grow text-center py-3 border border-[#081628]/25 hover:border-[#081628] bg-transparent hover:bg-[#081628] text-[#081628] hover:text-white transition-all duration-500 font-sans tracking-widest text-[10px] uppercase font-semibold flex items-center justify-center gap-1.5 rounded-[8px]"
+                        className="flex-grow text-center py-3 border border-[#081628]/25 hover:border-[#081628] bg-transparent hover:bg-[#081628] text-[#081628] hover:text-white transition-all duration-500 font-sans tracking-widest text-[11px] md:text-xs uppercase font-medium flex items-center justify-center gap-1.5 rounded-[8px]"
                       >
                         <Mail size={12} /> Email
                       </a>
@@ -1169,11 +1211,11 @@ export default function HomePage() {
             <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold block">
               The Gateway of Adventure
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl text-[#081628] font-medium tracking-wide">
-              Explore Sri Vijaya Puram
+            <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
+              Explore Port Blair & the Andaman Islands
             </h2>
-            <p className="font-sans text-charcoal/75 text-base md:text-lg font-light leading-relaxed">
-              Most travellers know Havelock, but Sri Vijaya Puram offers incredible history, pristine islands, tropical forests, marine adventures, and unforgettable cultural experiences. Make Hotel Sunrise your gateway to discovering the authentic soul of the Andaman Islands.
+            <p className="font-sans text-[#2b2b2b]/85 text-sm md:text-[15px] font-normal leading-relaxed">
+              Most travellers know Havelock, but Sri Vijaya Puram offers incredible history, pristine islands, tropical forests, marine adventures, and unforgettable cultural experiences. Find things to do in Port Blair, explore local sightseeing, and discover must-visit attractions in the Andaman Islands from our centrally located city hotel.
             </p>
           </div>
 
@@ -1191,39 +1233,39 @@ export default function HomePage() {
                 {/* Clickable Card Link Wrapper */}
                 <Link href={`/experiences/${exp.slug}`} className="absolute inset-0 z-30" aria-label={`Explore ${exp.name}`} />
 
-                <div>
-                  {/* Image */}
-                  <div className="h-44 relative overflow-hidden">
-                    <Image 
-                      src={exp.image} 
-                      alt={exp.name} 
-                      fill 
-                      unoptimized
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                      loading="lazy"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                    
-                    {/* Category Tag */}
-                    <div className="absolute top-3 left-3 bg-[#081628]/80 backdrop-blur-md px-2.5 py-1 rounded-[6px] text-[9px] font-sans tracking-widest text-accent uppercase font-bold">
-                      {exp.tag}
-                    </div>
+                {/* Image */}
+                <div className="h-44 relative overflow-hidden shrink-0">
+                  <Image 
+                    src={exp.image} 
+                    alt={exp.name} 
+                    fill 
+                    unoptimized
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    loading="lazy"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                  
+                  {/* Category Tag */}
+                  <div className="absolute top-3 left-3 bg-[#081628]/80 backdrop-blur-md px-2.5 py-1 rounded-[6px] text-[9px] font-sans tracking-widest text-accent uppercase font-medium">
+                    {exp.tag}
                   </div>
+                </div>
 
-                  {/* Info */}
-                  <div className="p-5 space-y-4 text-left">
+                {/* Info & CTA Wrapper */}
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-5 text-left">
+                  <div className="space-y-4">
                     <div className="space-y-2">
-                      <h3 className="font-serif text-base text-[#081628] group-hover:text-accent font-semibold transition-colors duration-300 line-clamp-2">
+                      <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] group-hover:text-accent font-medium transition-colors duration-300 line-clamp-2 h-[48px] sm:h-[54px] lg:h-[60px]">
                         {exp.name}
                       </h3>
-                      <p className="text-charcoal/70 font-sans font-light text-[11px] leading-relaxed line-clamp-3">
+                      <p className="text-[#2b2b2b]/75 font-sans font-normal text-[13px] md:text-[14px] leading-relaxed line-clamp-3">
                         {exp.description}
                       </p>
                     </div>
 
                     {/* Metadata Row */}
-                    <div className="pt-3 border-t border-charcoal/5 space-y-2 text-[10px] text-charcoal/60 font-sans font-light">
+                    <div className="pt-3 border-t border-charcoal/5 space-y-2 text-xs text-[#2b2b2b]/70 font-sans font-normal">
                       <div className="flex items-center gap-2">
                         <MapPin size={11} className="text-accent-hover shrink-0" />
                         <span>{exp.travelTime}</span>
@@ -1234,13 +1276,13 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Explore More CTA */}
-                <div className="p-5 pt-0 pb-6 relative z-20 text-left">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] text-accent-hover font-sans tracking-widest uppercase font-bold transition-all duration-300 group-hover:gap-2.5">
-                    Explore More <ArrowRight size={11} />
-                  </span>
+                  {/* Explore More CTA */}
+                  <div className="pt-2 relative z-20">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] md:text-xs text-accent-hover font-sans tracking-widest uppercase font-medium transition-all duration-300 group-hover:gap-2.5">
+                      Explore More <ArrowRight size={11} />
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -1301,11 +1343,11 @@ export default function HomePage() {
                 <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold block">
                   Tropical Wilderness
                 </span>
-                <h2 className="font-serif text-3xl md:text-5xl text-[#081628] font-medium tracking-wide">
+                <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
                   Discover Andaman's Wild Side
                 </h2>
               </div>
-              <p className="font-sans text-charcoal/75 text-base leading-relaxed font-light">
+              <p className="font-sans text-[#2b2b2b]/85 text-sm md:text-[15px] font-normal leading-relaxed">
                 The Andaman & Nicobar Islands harbor some of the earth's most unique ecological habitats. From pristine tropical rainforests housing exotic avifauna to protected saltwater estuaries and lush mangroves, the islands pulse with raw natural life.
               </p>
               <div className="space-y-4">
@@ -1313,7 +1355,7 @@ export default function HomePage() {
                   <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0 mt-0.5">
                     <Check size={12} className="text-accent" />
                   </div>
-                  <p className="text-xs text-charcoal/80 font-sans font-light">
+                  <p className="text-[13px] md:text-[14px] text-[#2b2b2b]/80 font-sans font-normal">
                     Protected saltwater crocodile preservation program access.
                   </p>
                 </div>
@@ -1321,7 +1363,7 @@ export default function HomePage() {
                   <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0 mt-0.5">
                     <Check size={12} className="text-accent" />
                   </div>
-                  <p className="text-xs text-charcoal/80 font-sans font-light">
+                  <p className="text-[13px] md:text-[14px] text-[#2b2b2b]/80 font-sans font-normal">
                     Birdwatching treks through Chidiya Tapu bird sanctuaries.
                   </p>
                 </div>
@@ -1329,7 +1371,7 @@ export default function HomePage() {
                   <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0 mt-0.5">
                     <Check size={12} className="text-accent" />
                   </div>
-                  <p className="text-xs text-charcoal/80 font-sans font-light">
+                  <p className="text-[13px] md:text-[14px] text-[#2b2b2b]/80 font-sans font-normal">
                     Pristine marine biodiversity expeditions at Mahatma Gandhi Reserve.
                   </p>
                 </div>
@@ -1338,7 +1380,7 @@ export default function HomePage() {
               <div className="pt-4">
                 <Link 
                   href="/wildlife"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-primary text-primary hover:bg-primary hover:text-pearl font-sans text-xs tracking-widest uppercase font-semibold transition-all duration-500 rounded-[8px]"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 border border-primary text-primary hover:bg-primary hover:text-pearl font-sans text-xs tracking-widest uppercase font-medium transition-all duration-500 rounded-[8px]"
                 >
                   Explore Wildlife <Trees size={14} />
                 </Link>
@@ -1367,8 +1409,8 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10" />
                     <div className="absolute bottom-6 left-6 z-20 space-y-1 text-left">
-                      <h3 className="font-serif text-lg text-pearl font-semibold group-hover:text-accent transition-colors duration-300">{item.title}</h3>
-                      <p className="text-[10px] text-pearl/70 font-sans font-light leading-snug">{item.desc}</p>
+                      <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-pearl font-medium group-hover:text-accent transition-colors duration-300">{item.title}</h3>
+                      <p className="text-xs text-pearl/75 font-sans font-normal leading-relaxed">{item.desc}</p>
                     </div>
                   </Link>
                 </motion.div>
@@ -1457,11 +1499,11 @@ export default function HomePage() {
             <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold block">
               Curated Packages
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl text-[#081628] font-medium tracking-wide">
-              Explore Our Travel Packages
+            <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
+              Andaman Tour Packages
             </h2>
-            <p className="font-sans text-charcoal/75 text-sm md:text-base font-light">
-              Choose from our curated travel packages offering comfortable stays, local sightseeing tours, and seamless ferry bookings to make your Andaman exploration hassle-free.
+            <p className="font-sans text-[#2b2b2b]/85 text-sm md:text-[15px] font-normal leading-relaxed">
+              Choose from our curated Andaman tour packages offering comfortable stays, local sightseeing tours, and seamless ferry bookings to make your Andaman exploration holiday hassle-free.
             </p>
           </div>
 
@@ -1494,7 +1536,7 @@ export default function HomePage() {
                   <div className="p-8 space-y-6 text-left">
                     <div className="flex justify-between items-start">
                       <Link href={`/packages/${pkg.slug}`}>
-                        <h3 className="font-serif text-lg md:text-xl text-[#081628] font-semibold group-hover:text-accent transition-colors duration-300">{pkg.title}</h3>
+                        <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] font-medium group-hover:text-accent transition-colors duration-300">{pkg.title}</h3>
                       </Link>
                     </div>
                     <div className="text-accent-hover text-sm font-semibold tracking-wider font-sans border-b border-charcoal/5 pb-4">
@@ -1504,7 +1546,7 @@ export default function HomePage() {
                     {/* Features list */}
                     <ul className="space-y-3 pt-2">
                       {pkg.features.map(feat => (
-                        <li key={feat} className="flex items-start gap-2.5 text-xs text-charcoal/80 font-sans font-light">
+                        <li key={feat} className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-[#2b2b2b]/85 font-sans font-normal">
                           <Check size={12} className="text-accent shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
@@ -1518,13 +1560,13 @@ export default function HomePage() {
                     href={`https://wa.me/919732470317?text=Hello%20Hotel%20Sunrise%20Reservations%2C%20I%20am%20interested%20in%20inquiring%20about%20the%20${encodeURIComponent(pkg.title)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center py-3 border border-primary hover:bg-primary hover:text-white text-primary transition-all duration-500 bg-transparent font-sans tracking-widest text-[10px] uppercase font-semibold flex items-center justify-center gap-1.5 rounded-[8px]"
+                    className="flex-1 text-center py-3 border border-primary hover:bg-primary hover:text-white text-primary transition-all duration-500 bg-transparent font-sans tracking-widest text-[11px] md:text-xs uppercase font-medium flex items-center justify-center gap-1.5 rounded-[8px]"
                   >
                     Enquire <MessageSquare size={10} />
                   </a>
                   <Link
                     href={`/packages/${pkg.slug}`}
-                    className="flex-1 text-center py-3 bg-primary hover:bg-primary/95 text-white transition-all duration-300 font-sans tracking-widest text-[10px] uppercase font-semibold flex items-center justify-center gap-1.5 rounded-[8px]"
+                    className="flex-1 text-center py-3 bg-primary hover:bg-primary/95 text-white transition-all duration-300 font-sans tracking-widest text-[11px] md:text-xs uppercase font-medium flex items-center justify-center gap-1.5 rounded-[8px]"
                   >
                     Details <ArrowRight size={10} />
                   </Link>
@@ -1585,7 +1627,7 @@ export default function HomePage() {
               <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold">
                 Visual Stories
               </span>
-              <h2 className="font-serif text-3xl md:text-5xl text-[#081628] font-medium tracking-wide">
+              <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
                 Sanctuary Gallery
               </h2>
             </div>
@@ -1697,7 +1739,7 @@ export default function HomePage() {
           <span className="text-xs font-sans tracking-[0.3em] text-accent uppercase font-bold block mb-4">
             Guest Experiences
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl text-primary font-medium tracking-wide mb-12">
+          <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-primary leading-[1.2] font-medium tracking-wide mb-12">
             Voices from the Sanctuary
           </h2>
 
@@ -1720,13 +1762,13 @@ export default function HomePage() {
                 </div>
 
                 {/* Comment */}
-                <blockquote className="font-serif text-lg md:text-xl lg:text-2xl text-primary italic leading-relaxed font-light px-4 md:px-8">
+                <blockquote className="font-serif text-lg md:text-xl lg:text-2xl text-primary italic leading-relaxed font-normal px-4 md:px-8">
                   &ldquo;{REVIEWS[currentReview].comment}&rdquo;
                 </blockquote>
 
                 {/* Author */}
                 <div className="space-y-1">
-                  <cite className="font-sans text-sm tracking-widest uppercase font-semibold text-charcoal not-italic block">
+                  <cite className="font-sans text-sm tracking-widest uppercase font-medium text-charcoal not-italic block">
                     {REVIEWS[currentReview].name}
                   </cite>
                   <span className="text-xs text-charcoal/50 font-sans tracking-wide">
@@ -1764,6 +1806,82 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+
+      {/* SECTION 8.5: FAQ */}
+      <section className="py-24 bg-[#fbfaf7] text-charcoal relative overflow-hidden border-t border-[#081628]/5">
+        <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-12">
+          <div className="space-y-4">
+            <span className="text-xs font-sans tracking-[0.3em] text-accent-hover uppercase font-bold block">
+              Guest Information
+            </span>
+            <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-[#081628] leading-[1.2] font-medium tracking-wide">
+              Frequently Asked Questions About Hotel Sunrise
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-left max-w-3xl mx-auto">
+            {[
+              {
+                q: "Is Hotel Sunrise located in Port Blair?",
+                a: "Yes, Hotel Sunrise is located in Port Blair, Sri Vijaya Puram. We are situated right in the city center near the Phoenix Bay and Aberdeen Bazaar market areas."
+              },
+              {
+                q: "Where is Hotel Sunrise located in Sri Vijaya Puram?",
+                a: "Hotel Sunrise is located at Babu Lane, Aberdeen Bazaar in the city center of Sri Vijaya Puram. This central location provides easy access to local transport links, shopping centers, restaurants, and ferry jetties."
+              },
+              {
+                q: "Is Hotel Sunrise near Aberdeen Bazaar?",
+                a: "Yes, our hotel is located directly within the Aberdeen Bazaar area near Babu Lane, making it incredibly convenient for shopping, local dining, and quick travel across the city."
+              },
+              {
+                q: "Is Hotel Sunrise a budget-friendly hotel in Port Blair?",
+                a: "Yes, Hotel Sunrise is a clean, reliable, and budget-friendly hotel in Port Blair. We offer high-value accommodations suitable for families, couples, and budget-conscious travellers."
+              },
+              {
+                q: "What attractions are near Hotel Sunrise?",
+                a: "Our central location places us close to several top attractions: Cellular Jail, Phoenix Bay Jetty (for ferries to Havelock and Neil Island), Corbyn's Cove Beach, and Veer Savarkar International Airport are all easily accessible from the hotel."
+              },
+              {
+                q: "Is Hotel Sunrise suitable for families?",
+                a: "Yes, our hotel offers excellent family rooms in Port Blair. Our accommodations are designed to comfortably host families exploring the Andaman Islands."
+              }
+            ].map((faq, index) => (
+              <div key={faq.q} className="border-b border-[#081628]/10 last:border-b-0">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="flex items-center justify-between w-full text-left font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-[#081628] font-medium py-4 hover:text-accent transition-colors duration-300 focus:outline-none"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown 
+                    size={18} 
+                    className={`text-accent shrink-0 ml-4 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : 'rotate-0'}`} 
+                  />
+                </button>
+                <AnimatePresence initial={false}>
+                  {openFaq === index && (
+                    <motion.div
+                      key="content"
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginBottom: 16 },
+                        collapsed: { opacity: 0, height: 0, marginBottom: 0 }
+                      }}
+                      transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="font-sans text-[#2b2b2b]/85 text-sm md:text-[15px] font-normal leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
         {/* Transition wave from Section 8 to Section 9 */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
@@ -1804,14 +1922,14 @@ export default function HomePage() {
             <span className="text-xs font-sans tracking-[0.3em] text-accent uppercase font-bold flex items-center gap-2">
               <Sparkles size={14} className="text-accent" /> Plan Your Perfect Andaman Stay
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl text-pearl leading-tight font-medium">
+            <h2 className="font-serif text-[30px] md:text-[38px] lg:text-[44px] text-pearl leading-[1.2] font-medium">
               Your luxury Andaman journey begins here.
             </h2>
-            <p className="font-sans text-pearl/70 text-base leading-relaxed font-light">
+            <p className="font-sans text-pearl/70 text-sm md:text-[15px] leading-relaxed font-normal">
               Sri Vijaya Puram is your elegant gateway. Connect with our dedicated reservation concierge to plan your bespoke villa arrangements, customized rainforest walks, marine safaris, and fine-dining preferences.
             </p>
             
-            <div className="space-y-4 font-sans text-sm font-light text-pearl/80">
+            <div className="space-y-4 font-sans text-sm font-normal text-pearl/85">
               <div className="flex items-center gap-3">
                 <div className="w-6 h-6 rounded-full border border-accent/30 flex items-center justify-center">
                   <Check size={12} className="text-accent" />
@@ -1837,7 +1955,7 @@ export default function HomePage() {
                 href="https://wa.me/919732470317?text=Hello%20Hotel%20Sunrise%20Concierge%2C%20I%20would%20like%20to%20plan%20a%20luxury%20stay."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-pearl font-sans text-xs tracking-widest uppercase font-semibold transition-all duration-300 flex items-center justify-center gap-2 border border-[#25D366] shadow-[0_4px_15px_rgba(37,211,102,0.3)]"
+                className="px-8 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-pearl font-sans text-xs tracking-widest uppercase font-medium transition-all duration-300 flex items-center justify-center gap-2 border border-[#25D366] shadow-[0_4px_15px_rgba(37,211,102,0.3)]"
               >
                 <MessageSquare size={16} /> WhatsApp Reservations
               </a>
@@ -1857,12 +1975,12 @@ export default function HomePage() {
             className="bg-primary-dark/90 backdrop-blur-md border border-accent/25 p-8 md:p-10 rounded-sm shadow-2xl space-y-8 text-left text-pearl"
           >
             <div className="border-b border-accent/20 pb-4">
-              <h3 className="font-serif text-2xl text-pearl font-medium">Instant Reservations</h3>
+              <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-pearl font-medium">Instant Reservations</h3>
               <p className="text-xs text-pearl/50 font-sans tracking-wide mt-1">Ready to plan your stay in Port Blair?</p>
             </div>
 
             <div className="space-y-6">
-              <p className="text-pearl/80 text-sm font-sans font-light leading-relaxed">
+              <p className="text-pearl/85 text-sm font-sans font-normal leading-relaxed">
                 Use our dynamic online reservation assistant to select your room type, input custom travel dates, request special arrangements, and check local tour rates.
               </p>
               
