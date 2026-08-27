@@ -4,13 +4,27 @@ import path from 'path';
 import roomsData from '@/data/rooms.json';
 
 let cachedRoomsData: any = null;
+const tmpPath = '/tmp/rooms.json';
 
 export async function GET() {
   try {
     if (!cachedRoomsData) {
-      const filePath = path.join(process.cwd(), 'src/data/rooms.json');
-      const fileData = fs.readFileSync(filePath, 'utf-8');
-      cachedRoomsData = JSON.parse(fileData);
+      // 1. Try to read from writeable /tmp cache first
+      if (fs.existsSync(tmpPath)) {
+        try {
+          const fileData = fs.readFileSync(tmpPath, 'utf-8');
+          cachedRoomsData = JSON.parse(fileData);
+        } catch (readError) {
+          console.warn('Failed to read rooms from /tmp:', readError);
+        }
+      }
+      
+      // 2. Fall back to static JSON file if not in /tmp
+      if (!cachedRoomsData) {
+        const filePath = path.join(process.cwd(), 'src/data/rooms.json');
+        const fileData = fs.readFileSync(filePath, 'utf-8');
+        cachedRoomsData = JSON.parse(fileData);
+      }
     }
     return NextResponse.json(cachedRoomsData);
   } catch (error: any) {
@@ -30,8 +44,19 @@ export async function POST(request: Request) {
     const body = await request.json();
     const filePath = path.join(process.cwd(), 'src/data/rooms.json');
     
-    // Write new rooms data
-    fs.writeFileSync(filePath, JSON.stringify(body, null, 2), 'utf-8');
+    // 1. Attempt writing to local static file system (e.g. localhost, local VPS)
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(body, null, 2), 'utf-8');
+    } catch (writeError: any) {
+      console.warn('Local filesystem is read-only. Writing to Vercel /tmp fallback...', writeError.message);
+      
+      // 2. Fall back to writeable /tmp path on serverless platform (Vercel)
+      try {
+        fs.writeFileSync(tmpPath, JSON.stringify(body, null, 2), 'utf-8');
+      } catch (tmpError: any) {
+        console.error('Failed to write to /tmp fallback as well:', tmpError.message);
+      }
+    }
     
     // Update in-memory cache
     cachedRoomsData = body;

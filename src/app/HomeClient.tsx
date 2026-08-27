@@ -192,6 +192,18 @@ export default function HomePage() {
   const [rooms, setRooms] = useState(ROOMS);
   const [gallery, setGallery] = useState(DEFAULT_GALLERY);
 
+  // Find the lowest room price dynamically from rooms data
+  const lowestPrice = rooms.reduce((min, room) => {
+    const match = room.price.match(/\d+[\d,\s]*/);
+    if (match) {
+      const value = parseInt(match[0].replace(/[,\s]/g, ""), 10);
+      return value < min ? value : min;
+    }
+    return min;
+  }, Infinity);
+
+  const formattedLowestPrice = lowestPrice !== Infinity ? `₹${lowestPrice}` : "₹900";
+
   useEffect(() => {
     fetch("/api/rooms")
       .then((res) => {
@@ -534,8 +546,18 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
               className="font-serif text-[30px] sm:text-[34px] md:text-[40px] lg:text-[48px] leading-[1.2] font-medium tracking-wide text-pearl max-w-2xl lg:max-w-[500px]"
             >
-              Hotel Sunrise <span className="text-accent italic font-medium text-lg sm:text-xl md:text-[22px] block tracking-wide mt-2 font-serif normal-case">Hotel in Port Blair, Andaman</span>
+              Hotel Sunrise – <span className="text-accent italic font-medium text-lg sm:text-xl md:text-[22px] block tracking-wide mt-2 font-serif normal-case">Hotel in Port Blair, Andaman</span>
             </motion.h1>
+
+            {/* Starting Price Tag */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.65 }}
+              className="font-sans text-xs md:text-sm tracking-[0.2em] text-accent uppercase font-medium mt-1"
+            >
+              Rooms Starting from <span className="font-semibold text-pearl">{formattedLowestPrice}</span>/Night
+            </motion.div>
 
             {/* Description */}
             <motion.p 
@@ -1080,6 +1102,9 @@ export default function HomePage() {
 
               const CardComponent = (isMobile ? "div" : motion.div) as any;
               const displayPrice = room.price.includes(" ") ? room.price.split(" ")[0] : room.price;
+              const priceMatch = room.price.match(/\d+[\d,\s]*/);
+              const numericPrice = priceMatch ? parseInt(priceMatch[0].replace(/[,\s]/g, ""), 10) : 0;
+              const isCheapest = numericPrice > 0 && numericPrice === lowestPrice;
 
               return (
                 <CardComponent
@@ -1098,7 +1123,9 @@ export default function HomePage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700 rounded-t-[24px]" 
                     />
                     <div className="absolute top-4 right-4 bg-[#081628]/90 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-[8px]">
-                      <span className="text-accent text-xs font-semibold tracking-wider font-sans">{displayPrice} <span className="text-[10px] text-pearl/60 font-normal">/ Night</span></span>
+                      <span className="text-accent text-xs font-semibold tracking-wider font-sans">
+                        {isCheapest ? "Starting from " : ""}{displayPrice} <span className="text-[10px] text-pearl/60 font-normal">/ Night</span>
+                      </span>
                     </div>
                   </Link>
 
@@ -1974,9 +2001,12 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="bg-primary-dark/90 backdrop-blur-md border border-accent/25 p-8 md:p-10 rounded-sm shadow-2xl space-y-8 text-left text-pearl"
           >
-            <div className="border-b border-accent/20 pb-4">
-              <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-pearl font-medium">Instant Reservations</h3>
-              <p className="text-xs text-pearl/50 font-sans tracking-wide mt-1">Ready to plan your stay in Port Blair?</p>
+            <div className="border-b border-accent/20 pb-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+              <div>
+                <h3 className="font-serif text-[18px] sm:text-[20px] lg:text-[22px] text-pearl font-medium">Instant Reservations</h3>
+                <p className="text-xs text-pearl/50 font-sans tracking-wide mt-1">Ready to plan your stay in Port Blair?</p>
+              </div>
+              <span className="text-xs sm:text-sm font-sans tracking-wider text-accent font-semibold whitespace-nowrap">Rooms from {formattedLowestPrice}/night</span>
             </div>
 
             <div className="space-y-6">
@@ -2000,7 +2030,7 @@ export default function HomePage() {
               href="/contact"
               className="w-full text-center py-4 bg-accent hover:bg-accent-hover text-primary transition-all duration-300 font-sans tracking-widest text-xs uppercase font-bold shadow-lg flex items-center justify-center gap-2 rounded-[8px]"
             >
-              Open Booking Assistant <ArrowRight size={14} />
+              Book Now <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>
