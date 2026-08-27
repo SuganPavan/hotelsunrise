@@ -219,7 +219,13 @@ export default function HomePage() {
           setRooms(Object.values(data));
         }
       })
-      .catch((err) => console.error("Failed to load rooms dynamically:", err));
+      .catch((err) => {
+        // Silently handle cancelled or transient aborted requests
+        if (err.name === 'AbortError' || err.message?.includes('499')) {
+          return;
+        }
+        console.warn("Failed to load rooms dynamically:", err.message);
+      });
 
     fetch("/api/gallery", { cache: "no-store" })
       .then((res) => {
@@ -235,7 +241,13 @@ export default function HomePage() {
           setGallery(data);
         }
       })
-      .catch((err) => console.error("Failed to load gallery dynamically:", err));
+      .catch((err) => {
+        // Silently handle cancelled or transient aborted requests
+        if (err.name === 'AbortError' || err.message?.includes('499')) {
+          return;
+        }
+        console.warn("Failed to load gallery dynamically:", err.message);
+      });
   }, []);
   
   // Active highlighted card state (for Nearby Attractions / Location Cards)
