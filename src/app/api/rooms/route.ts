@@ -22,8 +22,19 @@ export async function GET() {
       // 2. Fall back to static JSON file if not in /tmp
       if (!cachedRoomsData) {
         const filePath = path.join(process.cwd(), 'src/data/rooms.json');
-        const fileData = fs.readFileSync(filePath, 'utf-8');
-        cachedRoomsData = JSON.parse(fileData);
+        if (fs.existsSync(filePath)) {
+          try {
+            const fileData = fs.readFileSync(filePath, 'utf-8');
+            cachedRoomsData = JSON.parse(fileData);
+          } catch (jsonError) {
+            console.error('Failed to parse static rooms JSON:', jsonError);
+          }
+        }
+      }
+
+      // 3. Ultimate fallback: use statically imported data
+      if (!cachedRoomsData) {
+        cachedRoomsData = roomsData;
       }
     }
     return NextResponse.json(cachedRoomsData);

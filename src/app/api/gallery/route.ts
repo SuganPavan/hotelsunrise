@@ -22,8 +22,19 @@ export async function GET() {
       // 2. Fall back to static JSON file if not in /tmp
       if (!cachedGalleryData) {
         const filePath = path.join(process.cwd(), 'src/data/gallery.json');
-        const fileData = fs.readFileSync(filePath, 'utf-8');
-        cachedGalleryData = JSON.parse(fileData);
+        if (fs.existsSync(filePath)) {
+          try {
+            const fileData = fs.readFileSync(filePath, 'utf-8');
+            cachedGalleryData = JSON.parse(fileData);
+          } catch (jsonError) {
+            console.error('Failed to parse static gallery JSON:', jsonError);
+          }
+        }
+      }
+
+      // 3. Ultimate fallback: use statically imported data
+      if (!cachedGalleryData) {
+        cachedGalleryData = galleryData;
       }
     }
     return NextResponse.json(cachedGalleryData);
