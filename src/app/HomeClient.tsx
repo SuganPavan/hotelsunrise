@@ -205,7 +205,7 @@ export default function HomePage() {
   const formattedLowestPrice = lowestPrice !== Infinity ? `₹${lowestPrice}` : "₹900";
 
   useEffect(() => {
-    fetch("/api/rooms")
+    fetch("/api/rooms", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("HTTP error: " + res.status);
         const contentType = res.headers.get("content-type");
@@ -221,7 +221,7 @@ export default function HomePage() {
       })
       .catch((err) => console.error("Failed to load rooms dynamically:", err));
 
-    fetch("/api/gallery")
+    fetch("/api/gallery", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("HTTP error: " + res.status);
         const contentType = res.headers.get("content-type");

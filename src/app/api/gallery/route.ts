@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import galleryData from '@/data/gallery.json';
 
+export const dynamic = 'force-dynamic';
+
 let cachedGalleryData: any = null;
 const tmpPath = '/tmp/gallery.json';
 

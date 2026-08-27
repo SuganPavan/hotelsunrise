@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import roomsData from '@/data/rooms.json';
 
+export const dynamic = 'force-dynamic';
+
 let cachedRoomsData: any = null;
 const tmpPath = '/tmp/rooms.json';
 
