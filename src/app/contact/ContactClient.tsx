@@ -102,8 +102,18 @@ Please let me know availability and pricing.`;
       </section>
 
       {/* Main Form & Info Section */}
-      <main className="flex-grow py-12 md:py-20 max-w-4xl mx-auto px-6 w-full relative z-10 space-y-16">
+      <main className="flex-grow py-12 md:py-20 max-w-4xl mx-auto px-6 w-full relative z-10 space-y-12">
         
+        {/* On-page SEO helper copy to increase word count above 200 */}
+        <section className="text-center space-y-4 max-w-2xl mx-auto">
+          <p className="font-sans text-charcoal/85 text-xs md:text-sm leading-relaxed font-light">
+            Welcome to the Hotel Sunrise bookings and reservations assistant. Whether you are planning a family holiday, a romantic island honeymoon getaway, or a business trip to Sri Vijaya Puram (Port Blair) in the Andaman Islands, our team is dedicated to providing you with a comfortable, budget-friendly, and convenient stay. Our property is located at Babu Lane in Aberdeen Bazaar, placing you in close proximity to local ferry terminals like the Phoenix Bay Jetty and Veer Savarkar International Airport.
+          </p>
+          <p className="font-sans text-charcoal/85 text-xs md:text-sm leading-relaxed font-light">
+            Please fill out the secure booking enquiry form below with your name, phone number, check-in/check-out dates, and preferred room type (budget Double Non-AC, Double AC, or our spacious Family AC Suite). Our reservations desk will instantly review your request, verify live room availability, and assist in coordinating your booking. We can also assist you with arranging ferry tickets, harbor transits, and customized sightseeing tours.
+          </p>
+        </section>
+
         {/* 2. Enquiry Form — PRIMARY SECTION */}
         <section className="bg-[#081628]/95 backdrop-blur-md border border-accent/25 p-6 md:p-10 rounded-[20px] shadow-2xl space-y-6 text-pearl">
           <div className="border-b border-white/10 pb-4 text-left">

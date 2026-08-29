@@ -39,9 +39,13 @@ export async function GET() {
         cachedGalleryData = galleryData;
       }
     }
-    return NextResponse.json(cachedGalleryData);
+    return NextResponse.json(cachedGalleryData, {
+      headers: { 'X-Robots-Tag': 'noindex, nofollow, nosnippet, noarchive' }
+    });
   } catch (error: any) {
-    return NextResponse.json(galleryData);
+    return NextResponse.json(galleryData, {
+      headers: { 'X-Robots-Tag': 'noindex, nofollow, nosnippet, noarchive' }
+    });
   }
 }
 
@@ -51,7 +55,10 @@ export async function POST(request: Request) {
     const authHeader = request.headers.get('authorization');
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
     if (authHeader !== `Bearer ${adminPassword}`) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, {
+        status: 401,
+        headers: { 'X-Robots-Tag': 'noindex, nofollow' }
+      });
     }
 
     const body = await request.json();
@@ -74,8 +81,13 @@ export async function POST(request: Request) {
     // Update in-memory cache
     cachedGalleryData = body;
     
-    return NextResponse.json({ success: true, message: 'Gallery updated successfully' });
+    return NextResponse.json({ success: true, message: 'Gallery updated successfully' }, {
+      headers: { 'X-Robots-Tag': 'noindex, nofollow' }
+    });
   } catch (error: any) {
-    return NextResponse.json({ error: 'Failed to write gallery data: ' + error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to write gallery data: ' + error.message }, {
+      status: 500,
+      headers: { 'X-Robots-Tag': 'noindex, nofollow' }
+    });
   }
 }

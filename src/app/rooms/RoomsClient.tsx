@@ -71,7 +71,7 @@ export default function RoomsClient() {
             <span className="text-accent italic font-medium">Comfortable Stays</span>
           </h1>
           <p className="max-w-2xl mx-auto font-sans text-pearl/75 text-xs md:text-sm leading-relaxed font-light">
-            Browse through our premium air-conditioned hotel accommodations, thoughtfully equipped with modern comforts, clean utilities, and convenient amenities in Aberdeen Bazar.
+            Browse through our premium air-conditioned hotel accommodations, thoughtfully equipped with modern comforts, convenient amenities, and clean clean utilities in Aberdeen Bazar.
           </p>
         </div>
       </section>

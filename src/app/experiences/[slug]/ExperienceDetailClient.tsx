@@ -73,6 +73,21 @@ export default function ExperienceDetailClient({ attraction }: Props) {
   // Concierge Whatsapp Inquiry Message
   const whatsappUrl = `https://wa.me/919732470317?text=Hello%20Concierge%20at%20Hotel%20Sunrise%2C%20I%20am%20interested%20in%20planning%20the%20${encodeURIComponent(attraction.name)}%20experience.`;
 
+  // Determine relevant package slug based on attraction category for internal linking
+  let relevantPackageSlug = "explore-andaman";
+  let relevantPackageName = "Explore Andaman Package";
+  
+  if (attraction.category.toLowerCase().includes("adventure") || attraction.category.toLowerCase().includes("wildlife")) {
+    relevantPackageSlug = "adventure-package";
+    relevantPackageName = "Adventure Package";
+  } else if (attraction.slug === "cellular-jail" || attraction.slug === "ross-island") {
+    relevantPackageSlug = "explore-andaman";
+    relevantPackageName = "Explore Andaman Package";
+  } else {
+    relevantPackageSlug = "budget-traveller-package";
+    relevantPackageName = "Budget Andaman Package";
+  }
+
   return (
     <div className="bg-pearl min-h-screen font-sans selection:bg-accent selection:text-primary relative">
       <Navbar isHeroTransitioned={true} />
@@ -651,7 +666,7 @@ export default function ExperienceDetailClient({ attraction }: Props) {
             Stay at Hotel Sunrise &bull; Experience Sri Vijaya Puram
           </h2>
           <p className="font-sans text-pearl/70 text-sm md:text-base leading-relaxed font-light max-w-xl mx-auto">
-            Allow our dedicated concierge hosts to arrange private yacht cruises, timing approvals, fast-track permits, and premium transfers for your visit to {attraction.name} with our custom <Link href="/packages" className="text-accent underline font-normal hover:text-accent-hover transition-colors">Andaman tour packages</Link>.
+            Allow our dedicated concierge hosts to arrange private yacht cruises, timing approvals, fast-track permits, and premium transfers for your visit to {attraction.name} with our custom <Link href={`/packages/${relevantPackageSlug}`} className="text-accent underline font-normal hover:text-accent-hover transition-colors">{relevantPackageName}</Link>.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">

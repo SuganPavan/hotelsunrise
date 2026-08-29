@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Accommodations
     { url: "/rooms", priority: 0.9, changeFrequency: "weekly" as const },
-    { url: "/bathrooms", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/rooms/double-bedroom-non-ac", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/rooms/double-bedroom-ac", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/rooms/family-room-ac", priority: 0.8, changeFrequency: "weekly" as const },

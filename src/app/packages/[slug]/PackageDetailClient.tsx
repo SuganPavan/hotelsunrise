@@ -261,9 +261,10 @@ export default function PackageDetailClient({ pkg }: Props) {
                     <h2 className="font-serif text-3xl md:text-5xl text-[#081628] font-bold leading-tight tracking-wide">
                       {day.title}
                     </h2>
-                    <p className="text-[#2b2b2b]/75 font-sans font-light text-xs md:text-sm leading-relaxed">
-                      {day.desc}
-                    </p>
+                    <p 
+                      className="text-[#2b2b2b]/75 font-sans font-light text-xs md:text-sm leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: day.desc }}
+                    />
                     
                     {/* Chips tags */}
                     <div className="flex flex-wrap gap-2 pt-2">

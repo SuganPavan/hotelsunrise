@@ -46,7 +46,7 @@ export const PACKAGES_DATA: Record<string, PackageData> = {
         dayNum: "01",
         daySubtitle: "DAY 01 &bull; Welcome to Paradise",
         title: "A Journey Begins Together",
-        desc: "Your romantic escape begins the moment you arrive in the Andaman Islands. After a warm welcome and comfortable hotel check-in, discover the fascinating history of the Cellular Jail before spending the evening hand in hand along the peaceful shores of Corbyn's Cove Beach. As night falls, experience the unforgettable Sound & Light Show that beautifully brings history to life.",
+        desc: "Your romantic escape begins the moment you arrive in the Andaman Islands. After a warm welcome and comfortable hotel check-in, discover the fascinating history of the Cellular Jail before spending the evening hand in hand along the peaceful shores of <a href='/experiences/corbyns-cove-beach' class='text-[#8a6835] hover:text-[#081628] underline transition-colors'>Corbyn\'s Cove Beach</a>. As night falls, experience the unforgettable Sound & Light Show that beautifully brings history to life.",
         image: "/couples-sunset.jpg",
         chips: ["✈️ Airport Transfer", "🏛 Cellular Jail", "🏖 Corbyn's Cove", "❤️ Sunset Walk", "🎭 Sound & Light Show"]
       },
@@ -123,7 +123,7 @@ export const PACKAGES_DATA: Record<string, PackageData> = {
         dayNum: "01",
         daySubtitle: "DAY 01 &bull; Welcome to Paradise",
         title: "Welcome to the Andaman Islands",
-        desc: "Begin your family holiday with a warm welcome at Veer Savarkar International Airport. After a comfortable hotel check-in, explore the historic Cellular Jail National Memorial and discover the stories of India's freedom struggle. End the day with a peaceful stroll along Corbyn's Cove Beach before enjoying the spectacular Sound & Light Show together.",
+        desc: "Begin your family holiday with a warm welcome at Veer Savarkar International Airport. After a comfortable hotel check-in, explore the historic Cellular Jail National Memorial and discover the stories of India's freedom struggle. End the day with a peaceful stroll along <a href='/experiences/corbyns-cove-beach' class='text-[#8a6835] hover:text-[#081628] underline transition-colors'>Corbyn\'s Cove Beach</a> before enjoying the spectacular Sound & Light Show together.",
         image: "/cellular-jail-day.jpg",
         chips: ["✈️ Airport Transfer", "🏛 Cellular Jail", "🏄 Corbyn's Cove", "🎭 Sound & Light Show", "👨‍👩‍👧‍👦 Family Time"]
       },
@@ -200,7 +200,7 @@ export const PACKAGES_DATA: Record<string, PackageData> = {
         dayNum: "01",
         daySubtitle: "DAY 01 &bull; Welcome to Paradise",
         title: "Where Your Island Journey Begins",
-        desc: "Arrive in Port Blair and begin your Andaman adventure with a warm welcome and comfortable hotel check-in. Discover the fascinating history of the iconic Cellular Jail National Memorial before enjoying a peaceful evening at Corbyn's Cove Beach. End the day with the captivating Sound & Light Show that beautifully narrates India's freedom struggle.",
+        desc: "Arrive in Port Blair and begin your Andaman adventure with a warm welcome and comfortable hotel check-in. Discover the fascinating history of the iconic Cellular Jail National Memorial before enjoying a peaceful evening at <a href='/experiences/corbyns-cove-beach' class='text-[#8a6835] hover:text-[#081628] underline transition-colors'>Corbyn\'s Cove Beach</a>. End the day with the captivating Sound & Light Show that beautifully narrates India's freedom struggle.",
         image: "/cellular-jail-day.jpg",
         chips: ["✈️ Airport Transfer", "🏛 Cellular Jail", "🏄 Corbyn's Cove", "🌅 Sunset", "🎭 Sound & Light Show"]
       },
@@ -273,7 +273,7 @@ export const PACKAGES_DATA: Record<string, PackageData> = {
         dayNum: "01",
         daySubtitle: "DAY 01 &bull; Welcome to Paradise",
         title: "Welcome to Paradise",
-        desc: "Your adventure begins as you arrive at Veer Savarkar International Airport in Port Blair. After a warm welcome and hotel check-in, step into history with a guided visit to the iconic Cellular Jail National Memorial. As the sun begins to set, experience the thrill of Jet Skiing at Corbyn's Cove Beach before ending the evening with the captivating Sound & Light Show.",
+        desc: "Your adventure begins as you arrive at Veer Savarkar International Airport in Port Blair. After a warm welcome and hotel check-in, step into history with a guided visit to the iconic Cellular Jail National Memorial. As the sun begins to set, experience the thrill of Jet Skiing at <a href='/experiences/corbyns-cove-beach' class='text-[#8a6835] hover:text-[#081628] underline transition-colors'>Corbyn\'s Cove Beach</a> before ending the evening with the captivating Sound & Light Show.",
         image: "/cellular-jail-day.jpg",
         chips: ["✈️ Airport Transfer", "🏛 Cellular Jail", "🏄 Jet Ski", "🏖 Corbyn's Cove", "🎭 Sound & Light Show"]
       },
@@ -364,7 +364,7 @@ export const PACKAGES_DATA: Record<string, PackageData> = {
         dayNum: "03",
         daySubtitle: "DAY 03 &bull; Heritage & Sunsets",
         title: "Island Heritage & Coastal Escape",
-        desc: "Take a shared ferry to Netaji Subhas Chandra Bose Island (Ross Island), where fascinating colonial ruins meet lush tropical landscapes. Spend time exploring the island before heading to Corbyn's Cove Beach for a relaxing sunset walk along the shoreline.",
+        desc: "Take a shared ferry to Netaji Subhas Chandra Bose Island (Ross Island), where fascinating colonial ruins meet lush tropical landscapes. Spend time exploring the island before heading to <a href='/experiences/corbyns-cove-beach' class='text-[#8a6835] hover:text-[#081628] underline transition-colors'>Corbyn\'s Cove Beach</a> for a relaxing sunset walk along the shoreline.",
         image: "/ross-island-ruins-roots.jpg",
         chips: ["⛴ Shared Ferry", "🏝 Ross Island", "🏛 Colonial Ruins", "🏖 Corbyn's Cove", "🌅 Sunset Walk"]
       },

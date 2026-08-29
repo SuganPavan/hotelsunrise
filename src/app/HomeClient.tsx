@@ -293,11 +293,11 @@ export default function HomePage() {
 
     const transitionTimer = setTimeout(() => {
       setIsTransitioned(true);
-    }, 17000); // Transitions to full screen at 17 seconds
+    }, 16000); // Transitions to full screen at 16 seconds
 
     const contentTimer = setTimeout(() => {
       setShowFinalContent(true);
-    }, 17000); // Shows Stage 2 content at 17 seconds
+    }, 16000); // Shows Stage 2 content at 16 seconds
 
     const videoTimer = setTimeout(() => {
       setLoadVideo(true);
@@ -558,7 +558,7 @@ export default function HomePage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
               className="font-serif text-[30px] sm:text-[34px] md:text-[40px] lg:text-[48px] leading-[1.2] font-medium tracking-wide text-pearl max-w-2xl lg:max-w-[500px]"
             >
-              Hotel Sunrise – <span className="text-accent italic font-medium text-lg sm:text-xl md:text-[22px] block tracking-wide mt-2 font-serif normal-case">Hotel in Port Blair, Andaman</span>
+              Hotel Sunrise <span className="text-accent italic font-medium text-lg sm:text-xl md:text-[22px] block tracking-wide mt-2 font-serif normal-case">Hotel in Port Blair, Andaman</span>
             </motion.h1>
 
             {/* Starting Price Tag */}
@@ -1125,7 +1125,7 @@ export default function HomePage() {
                   className="bg-white/60 backdrop-blur-md border border-accent/20 group overflow-hidden rounded-[24px] flex flex-col justify-between shadow-lg hover:border-accent transition-all duration-500 w-full text-charcoal"
                 >
                   {/* Image */}
-                  <Link href={`/rooms/${room.slug}`} className="h-64 relative overflow-hidden block">
+                  <Link href={`/rooms/${room.slug}`} className="h-64 relative overflow-hidden block" aria-label={`View details for ${room.name}`}>
                     <Image 
                       src={room.image} 
                       alt={room.name}
@@ -1559,7 +1559,7 @@ export default function HomePage() {
               >
                 <div>
                   {/* Image */}
-                  <Link href={`/packages/${pkg.slug}`} className="h-56 relative overflow-hidden block">
+                  <Link href={`/packages/${pkg.slug}`} className="h-56 relative overflow-hidden block" aria-label={`View details for ${pkg.title}`}>
                     <Image 
                       src={pkg.image} 
                       alt={pkg.title} 

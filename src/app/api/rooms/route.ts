@@ -39,9 +39,13 @@ export async function GET() {
         cachedRoomsData = roomsData;
       }
     }
-    return NextResponse.json(cachedRoomsData);
+    return NextResponse.json(cachedRoomsData, {
+      headers: { 'X-Robots-Tag': 'noindex, nofollow, nosnippet, noarchive' }
+    });
   } catch (error: any) {
-    return NextResponse.json(roomsData);
+    return NextResponse.json(roomsData, {
+      headers: { 'X-Robots-Tag': 'noindex, nofollow, nosnippet, noarchive' }
+    });
   }
 }
 
@@ -51,7 +55,10 @@ export async function POST(request: Request) {
     const authHeader = request.headers.get('authorization');
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
     if (authHeader !== `Bearer ${adminPassword}`) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, {
+        status: 401,
+        headers: { 'X-Robots-Tag': 'noindex, nofollow' }
+      });
     }
 
     const body = await request.json();
@@ -74,8 +81,13 @@ export async function POST(request: Request) {
     // Update in-memory cache
     cachedRoomsData = body;
     
-    return NextResponse.json({ success: true, message: 'Room rates updated successfully' });
+    return NextResponse.json({ success: true, message: 'Room rates updated successfully' }, {
+      headers: { 'X-Robots-Tag': 'noindex, nofollow' }
+    });
   } catch (error: any) {
-    return NextResponse.json({ error: 'Failed to write rooms data: ' + error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to write rooms data: ' + error.message }, {
+      status: 500,
+      headers: { 'X-Robots-Tag': 'noindex, nofollow' }
+    });
   }
 }
