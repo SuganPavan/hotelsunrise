@@ -1007,7 +1007,7 @@ export default function HomePage() {
                   Hotel Near Aberdeen Bazaar, Port Blair
                 </h2>
                 <p className="text-[#2b2b2b]/85 font-sans text-sm md:text-[15px] font-normal leading-relaxed">
-                  Our city hotel is located at Babu Lane, Aberdeen Bazaar in the heart of Sri Vijaya Puram (Port Blair). Staying here places you in the vibrant market center, close to shopping, dining, transport links, and key island ferry hubs.
+                  Our city hotel is located at Babu Lane, Aberdeen Bazaar in the heart of Sri Vijaya Puram (Port Blair). Staying here places you in the vibrant market center, close to shopping, dining, transport links, and key island ferry hubs. Read our <Link href="/aberdeen-bazaar-guide" className="text-accent-hover underline font-medium hover:text-accent transition-colors">Aberdeen Bazaar shopping guide</Link>.
                 </p>
               </div>
             </div>
