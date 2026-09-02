@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/gallery", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/wildlife", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "/aberdeen-bazaar-guide", priority: 0.8, changeFrequency: "weekly" as const },
+    { url: "/airport-to-jetty-transit", priority: 0.8, changeFrequency: "weekly" as const },
 
     // Accommodations
     { url: "/rooms", priority: 0.9, changeFrequency: "weekly" as const },

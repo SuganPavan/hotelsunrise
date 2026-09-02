@@ -1022,7 +1022,7 @@ export default function HomePage() {
                   Convenient Location in Port Blair
                 </h2>
                 <p className="text-[#2b2b2b]/85 font-sans text-sm md:text-[15px] font-normal leading-relaxed">
-                  Enjoy a highly convenient location in Port Blair. We are situated near Phoenix Bay Jetty for easy island ferry boarding, historic Cellular Jail for sightseeing, and Veer Savarkar International Airport for smooth arrivals and departures.
+                  Enjoy a highly convenient location in Port Blair. We are situated near Phoenix Bay Jetty for easy island ferry boarding, historic Cellular Jail for sightseeing, and Veer Savarkar International Airport for smooth arrivals and departures. Read our <Link href="/airport-to-jetty-transit" className="text-accent-hover underline font-medium hover:text-accent transition-colors">Airport to Jetty transit guide</Link>.
                 </p>
               </div>
             </div>
